@@ -1,5 +1,6 @@
 class DealsController < ApplicationController
   before_action :set_deal, only: %i[ show edit update destroy ]
+  load_and_authorize_resource
 
   # GET /deals or /deals.json
   def index
