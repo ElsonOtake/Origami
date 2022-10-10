@@ -28,4 +28,14 @@ RSpec.describe User, type: :model do
     @user.name = ' '
     expect(@user).to_not be_valid
   end
+
+  it 'Email must not be blank' do
+    @user.email = ' '
+    expect(@user).to_not be_valid
+  end
+
+  it 'Password must not be blank' do
+    @user.password = ' '
+    expect(@user).to_not be_valid
+  end
 end
