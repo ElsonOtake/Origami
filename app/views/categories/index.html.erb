@@ -11,4 +11,12 @@
   <% end %>
 </div>
 
+<%= @icon.name %>
+<% file = "astrology.png" %>
+<%# <img src='astrology.png' />
+<img src='american-football.png' /> %>
+<%= image_tag(file, alt: "A stern frog", width: "200") %>
+<ul>
+</ul>
+
 <%= link_to "New category", new_category_path %>
