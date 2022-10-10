@@ -2,8 +2,10 @@
 
 one:
   name: MyString
-  image: 
+  file_name: MyString
+  alt_text: MyString
 
 two:
   name: MyString
-  image: 
+  file_name: MyString
+  alt_text: MyString
