@@ -4,8 +4,10 @@ class Ability
   def initialize(user)
     user ||= User.new
 
-    can :read, :all, author_id: user.id
-    can :create, :all, author_id: user.id
+    can :read, Category, user: user
+    can :create, Category, user: user
+    can :read, Deal, author: user
+    can :create, Deal, author: user
 
     # Define abilities for the user here. For example:
     #
