@@ -6,7 +6,7 @@ class CategoriesController < ApplicationController
   # GET /categories or /categories.json
   def index
     user = current_user
-    @categories = user.categories.all
+    @categories = user.categories.all.order(created_at: :desc)
   end
 
   # GET /categories/1 or /categories/1.json
@@ -14,6 +14,7 @@ class CategoriesController < ApplicationController
 
   # GET /categories/new
   def new
+    @icons = Icon.all
     @category = Category.new
   end
 
@@ -22,11 +23,13 @@ class CategoriesController < ApplicationController
 
   # POST /categories or /categories.json
   def create
+    @icons = Icon.all
     @category = Category.new(category_params)
+    @category.user = current_user
 
     respond_to do |format|
       if @category.save
-        format.html { redirect_to category_url(@category), notice: 'Category was successfully created.' }
+        format.html { redirect_to categories_url, notice: 'Category was successfully created.' }
         format.json { render :show, status: :created, location: @category }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -67,6 +70,6 @@ class CategoriesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def category_params
-    params.require(:category).permit(:user_id, :name)
+    params.require(:category).permit(:user_id, :name, :icon_id)
   end
 end
