@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Category, type: :model do
   before(:each) do
-    @user = User.new(name: 'Name Surname', email: 'email@origami.com', password: 'password')
+    @user = User.new(name: 'Name Surname', email: 'category@origami.com', password: 'password')
     @icon = Icon.new(name: 'Icon name', file_name: 'origami.png')
     @category = Category.new(name: 'Category name', icon: @icon, user: @user)
   end
@@ -16,12 +16,12 @@ RSpec.describe Category, type: :model do
     expect(@category).to_not be_valid
   end
 
-  it 'is not valid without a icon' do
+  it 'is not valid without an icon' do
     @category.icon = nil
     expect(@category).to_not be_valid
   end
 
-  it 'is not valid without a user' do
+  it 'is not valid without an user' do
     @category.user = nil
     expect(@category).to_not be_valid
   end
