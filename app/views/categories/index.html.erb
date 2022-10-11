@@ -2,10 +2,10 @@
   <div class="d-flex w-100">
     <ul class="nav justify-content-between w-100 px-2 pt-2">
       <li class="nav-item p-3">
-        <%= button_to 'Sign out', destroy_user_session_path, method: :delete, class: "nav-link bg-transparent border-0" %>
+        <%= button_to 'Sign out', destroy_user_session_path, method: :delete, class: "nav-link bg-transparent border-0 text-decoration-none text-white" %>
       </li>
       <li class="nav-item p-3">
-        <%= link_to 'Edit profile', edit_user_registration_path, class: "nav-link" %>
+        <%= link_to 'Edit profile', edit_user_registration_path, class: "nav-link text-decoration-none text-white" %>
       </li>
       <li class="nav-item">
         <p class="nav-link link-light">CATEGORIES</p>
@@ -15,7 +15,7 @@
       </li>
     </ul>
   </div>
-
+  <%= render "partials/message" %>
   <div id="categories">
     <% @categories.each do |category| %>
       <%= render category %>

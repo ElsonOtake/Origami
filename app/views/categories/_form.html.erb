@@ -1,4 +1,17 @@
 <%= form_with(model: category) do |form| %>
+  <div class="d-flex w-100 mb-5">
+    <ul class="nav justify-content-between w-100 px-2 pt-2">
+      <li class="nav-item link-light">
+        <%= link_to '&larr;'.html_safe, root_path, class: "text-decoration-none text-white" %>
+      </li>
+      <li class="nav-item">
+        <p class="nav-link link-light">ADD A NEW CATEGORY</p>
+      </li>
+      <li class="nav-item link-light">
+        <%= form.submit "Save", class:"nav-link bg-transparent border-0 text-decoration-none text-white" %>
+      </li>
+    </ul>
+  </div>
   <% if category.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
@@ -11,17 +24,21 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
+  <div class="form-group">
+    <%= form.text_field :name, class: "form-control border-0 border-bottom rounded-0 mx-3 px-0 w-100", placeholder: "Category name" %>
   </div>
-
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+  <%# <div class="m-3">
+    <% @icons.each do |icon| %>
+      <%# <div class="form-check form-check-inline">
+        <%# <input class="form-check-input" type="radio" name="inlineRadioOptions" id=<%= icon.file_name value="option1"> %>
+        <%# <label class="form-check-label mr-5 mb-5" for=<%= icon.file_name><%= image_tag(icon.file_name, alt: icon.name, width: "100")</label> %>
+      <%# </div> %>
+    <%# <% end %>
+  <%# </div> %>
+  <div class="form-check form-check-inline m-3">
+    <% @icons.each do |icon| %>
+      <%= form.radio_button :icon_id, icon.id, id: icon.file_name %>
+      <label for=<%= icon.file_name %> class="form-check-label mr-5 mb-5"><%= image_tag(icon.file_name, alt: icon.name, width: "100") %></label>
+    <% end %>
   </div>
 <% end %>
