@@ -1,18 +1,17 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-<div class="d-flex w-100">
-  <ul class="nav justify-content-between w-100 px-2 pt-2">
-    <li class="nav-item link-light">
-      <%= link_to '&larr;'.html_safe, root_path, class: "text-decoration-none text-white" %>
-    </li>
-    <li class="nav-item">
-      <p class="nav-link link-light">REGISTER</p>
-    </li>
-    <li class="nav-item link-light">
-      <%= f.submit "Next", class:"nav-link bg-transparent border-0 text-decoration-none text-white" %>
-    </li>
-  </ul>
-</div>
-
+  <div class="d-flex w-100">
+    <ul class="nav justify-content-between w-100 px-2 pt-2">
+      <li class="nav-item link-light">
+        <%= link_to '&larr;'.html_safe, root_path, class: "text-decoration-none text-white" %>
+      </li>
+      <li class="nav-item">
+        <p class="nav-link link-light">REGISTER</p>
+      </li>
+      <li class="nav-item link-light">
+        <%= f.submit "Next", class:"nav-link bg-transparent border-0 text-decoration-none text-white" %>
+      </li>
+    </ul>
+  </div>
 
   <%= render "devise/shared/error_messages", resource: resource %>
 
