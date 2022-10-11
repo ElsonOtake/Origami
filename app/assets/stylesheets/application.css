@@ -29,11 +29,18 @@ html {
 }
 
 body {
-  display: flex;
   min-height: 100vh;
   font-family: proxima-nova, sans-serif;
   font-style: normal;
   font-weight: 400;
+}
+
+.nav {
+  background-color: #3778c2;
+}
+
+.nav-link {
+  color: white;
 }
 
 .main_color {
