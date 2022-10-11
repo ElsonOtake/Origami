@@ -1,5 +1,6 @@
 class DealsController < ApplicationController
   before_action :set_deal, only: %i[show edit update destroy]
+  before_action :authenticate_user!
   load_and_authorize_resource
 
   # GET /deals or /deals.json
@@ -65,6 +66,6 @@ class DealsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def deal_params
-    params.require(:deal).permit(:user_id, :name, :amount)
+    params.require(:deal).permit(:author_id, :name, :amount)
   end
 end
