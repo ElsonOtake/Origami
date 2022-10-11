@@ -5,7 +5,10 @@ class DealsController < ApplicationController
 
   # GET /deals or /deals.json
   def index
-    @deals = Deal.all
+    user = current_user
+    puts "user => #{user}"
+    puts "params => #{params}"
+    @deals = user.categories.find(params[:category_id]).deals
   end
 
   # GET /deals/1 or /deals/1.json
@@ -66,6 +69,6 @@ class DealsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def deal_params
-    params.require(:deal).permit(:author_id, :name, :amount)
+    params.require(:deal).permit(:author_id, :name, :amount, :category_id)
   end
 end
