@@ -43,6 +43,11 @@ body {
   color: white;
 }
 
+.form-control:focus{
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
 .main_color {
   color: #3778c2;
 }
