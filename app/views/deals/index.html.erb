@@ -1,14 +1,19 @@
+<div class="d-flex w-100">
+  <ul class="nav justify-content-between w-100 px-2 pt-2">
+    <li class="nav-item link-light">
+      <%= link_to '&larr;'.html_safe, root_path, class: "text-decoration-none text-white" %>
+    </li>
+    <li class="nav-item">
+      <p class="nav-link link-light">TRANSACTION</p>
+    </li>
+  </ul>
+</div>
 <p style="color: green"><%= notice %></p>
-
-<h1>Deals</h1>
 
 <div id="deals">
   <% @deals.each do |deal| %>
     <%= render deal %>
-    <p>
-      <%= link_to "Show this deal", deal %>
-    </p>
   <% end %>
 </div>
 
-<%= link_to "New deal", new_deal_path %>
+<%= link_to "Add a new transaction", new_category_deal_path(1) %>
