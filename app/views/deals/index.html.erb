@@ -11,7 +11,7 @@
 
 <%= render "partials/message" %>
 
-<p>Total: <%= number_to_currency(@category.deals.sum('amount'), unit: '$', precision: 2) %></p>
+<p class="m-3 fs-4">Total: <%= number_to_currency(@category.deals.sum('amount'), unit: '$', precision: 2) %></p>
 <div id="deals">
   <% @deals.each do |deal| %>
     <%= render deal %>
