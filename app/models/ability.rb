@@ -4,6 +4,9 @@ class Ability
   def initialize(user)
     user ||= User.new
 
+    can :read, User
+    can :create, User
+    can :update, User, user: user
     can :read, Category, user: user
     can :create, Category, user: user
     can :read, Deal, author: user

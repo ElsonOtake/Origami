@@ -3,7 +3,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <div class="navbar-nav">
         <%= link_to '&larr;'.html_safe, categories_path, class: "text-decoration-none text-white fs-2" %>
-        <%= form.submit "Save", class:"nav-link bg-transparent border-0 text-decoration-none mx-2" %>
+        <%= form.submit "Save" if can? :create, Category, class:"nav-link bg-transparent border-0 text-decoration-none mx-2" %>
       </div>
     </div>
     <span class="navbar-brand mb-0 fs-4 text-white mx-3">ADD A CATEGORY</span>
