@@ -31,10 +31,10 @@ class DealsController < ApplicationController
     @deal = Deal.new(deal_params)
     @deal.author = current_user
     @other_categories = user.categories.where.not(id: @category)
-    @categories = Category.where(id: params[:category_ids])
-    @deal.categories.push(@categories)
+    categories = Category.where(id: params[:category_ids])
+    @deal.categories.push(categories)
     respond_to do |format|
-      if !params[:category_ids].nil? && @deal.save
+      if @deal.save
         format.html { redirect_to category_deals_url(@category), notice: 'Transaction was successfully created.' }
         format.json { render :show, status: :created, location: @deal }
       else
