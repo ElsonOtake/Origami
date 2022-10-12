@@ -1,17 +1,13 @@
 <%= form_with(model: category) do |form| %>
-  <div class="d-flex w-100 mb-5">
-    <ul class="nav justify-content-between w-100 px-2 pt-2">
-      <li class="nav-item link-light">
-        <%= link_to '&larr;'.html_safe, categories_path, class: "text-decoration-none text-white" %>
-      </li>
-      <li class="nav-item">
-        <p class="nav-link link-light">ADD A NEW CATEGORY</p>
-      </li>
-      <li class="nav-item link-light">
-        <%= form.submit "Save", class:"nav-link bg-transparent border-0 text-decoration-none text-white" %>
-      </li>
-    </ul>
-  </div>
+  <nav class="navbar navbar-expand text-white px-3 justify-content-between">
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="navbar-nav">
+        <%= link_to '&larr;'.html_safe, categories_path, class: "text-decoration-none text-white fs-2" %>
+        <%= form.submit "Save", class:"nav-link bg-transparent border-0 text-decoration-none text-white mx-2" %>
+      </div>
+    </div>
+    <span class="navbar-brand mb-0 fs-4 text-white mx-3">ADD A CATEGORY</span>
+  </nav>
 
   <%= render "partials/message" %>
 
@@ -33,7 +29,7 @@
   <div class="form-check form-check-inline m-3">
     <% @icons.each do |icon| %>
       <%= form.radio_button :icon_id, icon.id, id: icon.file_name %>
-      <%= label_tag icon.file_name, image_tag(icon.file_name, alt: icon.name, width: "50"), class: "form-check-label mr-5 mb-5" %>
+      <%= label_tag icon.file_name, image_tag(icon.file_name, alt: icon.name, width: "50"), class: "form-check-label m-2" %>
     <% end %>
   </div>
 
