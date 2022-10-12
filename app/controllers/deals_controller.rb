@@ -6,9 +6,8 @@ class DealsController < ApplicationController
   # GET /deals or /deals.json
   def index
     user = current_user
-    puts "user => #{user}"
-    puts "params => #{params}"
-    @deals = user.categories.find(params[:category_id]).deals
+    @category = user.categories.find(params[:category_id])
+    @deals = @category.deals.order(created_at: :desc)
   end
 
   # GET /deals/1 or /deals/1.json
@@ -16,7 +15,10 @@ class DealsController < ApplicationController
 
   # GET /deals/new
   def new
+    user = current_user
+    @category = user.categories.find(params[:category_id])
     @deal = Deal.new
+    @other_categories = user.categories.where.not(id: @category)
   end
 
   # GET /deals/1/edit
@@ -24,11 +26,16 @@ class DealsController < ApplicationController
 
   # POST /deals or /deals.json
   def create
+    user = current_user
+    @category = user.categories.find(params[:category_id])
     @deal = Deal.new(deal_params)
-
+    @deal.author = current_user
+    @other_categories = user.categories.where.not(id: @category)
+    @categories = Category.where(id: params[:category_ids])
+    @deal.categories.push(@categories)
     respond_to do |format|
       if @deal.save
-        format.html { redirect_to deal_url(@deal), notice: 'Deal was successfully created.' }
+        format.html { redirect_to category_deals_url(@category), notice: 'Deal was successfully created.' }
         format.json { render :show, status: :created, location: @deal }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -69,6 +76,6 @@ class DealsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def deal_params
-    params.require(:deal).permit(:author_id, :name, :amount, :category_id)
+    params.require(:deal).permit(:author_id, :name, :amount, :category_id, category_ids: [])
   end
 end
