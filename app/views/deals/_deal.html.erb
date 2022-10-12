@@ -2,7 +2,7 @@
   <div class="d-flex justify-content-between px-2">
     <div>
       <div class="card-body p-0">
-        <h5 class="card-title"><%= link_to deal.name, category_deal_path(1, deal.id), class: "text-decoration-none regular fs-4" %></h5>
+        <p class="card-title text-primary regular fs-4"><%= deal.name %></p>
         <p class="card-text"><small class="text-muted"><%= deal.created_at.strftime('%d %b %Y') %></small></p>
       </div>
     </div>
