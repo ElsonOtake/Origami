@@ -1,17 +1,13 @@
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <div class="d-flex w-100 mb-5">
-    <ul class="nav justify-content-between w-100 px-2 pt-2">
-      <li class="nav-item link-light">
-        <%= link_to '&larr;'.html_safe, categories_path, class: "text-decoration-none text-white" %>
-      </li>
-      <li class="nav-item">
-        <p class="nav-link link-light">FORGOT YOUR PASSWORD?</p>
-      </li>
-      <li class="nav-item link-light">
-        <%= f.submit "Send me reset password instructions", class:"nav-link bg-transparent border-0 text-decoration-none text-white" %>
-      </li>
-    </ul>
-  </div>
+  <nav class="navbar navbar-expand text-white px-3 mb-3 justify-content-between align-items-center">
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="navbar-nav">
+        <%= link_to '&larr;'.html_safe, categories_path, class: "text-decoration-none text-white fs-2" %>
+        <%= link_to 'Send', categories_path, class: "text-decoration-none text-white fs-4 mx-2" %>
+      </div>
+    </div>
+    <span class="navbar-brand mb-0 fs-4 text-white mx-3">FORGOT PASSWORD?</span>
+  </nav>
 
   <%= render "partials/message" %>
 
