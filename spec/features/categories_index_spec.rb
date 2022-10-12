@@ -5,7 +5,7 @@ RSpec.describe 'Category page', type: :feature do
     before(:each) do
       @user = FactoryBot.create(:user)
       @icon = Icon.create(name: 'fast food', file_name: 'fast-food.png')
-      Category.create(name: 'Fast Food', icon: @icon, user: @user)
+      @fast_food = Category.create(name: 'Fast Food', icon: @icon, user: @user)
     end
 
     it 'will present categories page' do
@@ -78,6 +78,13 @@ RSpec.describe 'Category page', type: :feature do
       expect(page).to have_css('.form-control')
       expect(page).to have_css('.form-check-label')
       expect(page).to have_css('.form-check-inline')
+    end
+
+    it 'will go to transactions page when click on category name' do
+      sign_in @user
+      visit categories_path
+      click_link 'Fast Food'
+      expect(current_path).to eq(category_deals_path(@fast_food.id))
     end
   end
 end
