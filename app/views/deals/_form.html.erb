@@ -1,17 +1,13 @@
 <%= form_with(model: deal, url: category_deals_path(@category)) do |form| %>
-  <div class="d-flex w-100 mb-5">
-    <ul class="nav justify-content-between w-100 px-2 pt-2">
-      <li class="nav-item link-light">
-        <%= link_to '&larr;'.html_safe, category_deals_path(@category), class: "text-decoration-none text-white" %>
-      </li>
-      <li class="nav-item">
-        <p class="nav-link link-light">ADD A NEW TRANSACTION</p>
-      </li>
-      <li class="nav-item link-light">
-        <%= form.submit "Save", class:"nav-link bg-transparent border-0 text-decoration-none text-white" %>
-      </li>
-    </ul>
-  </div>
+  <nav class="navbar navbar-expand text-white px-3 justify-content-between">
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="navbar-nav">
+        <%= link_to '&larr;'.html_safe, category_deals_path(@category), class: "text-decoration-none text-white fs-2" %>
+        <%= form.submit "Save", class:"nav-link bg-transparent border-0 text-decoration-none text-white mx-2" %>
+      </div>
+    </div>
+    <span class="navbar-brand mb-0 fs-4 text-white mx-3">ADD A TRANSACTION</span>
+  </nav>
 
   <%= render "partials/message" %>
 
