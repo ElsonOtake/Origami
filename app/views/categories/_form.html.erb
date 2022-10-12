@@ -33,7 +33,7 @@
   <div class="form-check form-check-inline m-3">
     <% @icons.each do |icon| %>
       <%= form.radio_button :icon_id, icon.id, id: icon.file_name %>
-      <%= label_tag icon.file_name, image_tag(icon.file_name, alt: icon.name, width: "100"), class: "form-check-label mr-5 mb-5" %>
+      <%= label_tag icon.file_name, image_tag(icon.file_name, alt: icon.name, width: "50"), class: "form-check-label mr-5 mb-5" %>
     <% end %>
   </div>
 
