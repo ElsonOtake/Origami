@@ -86,5 +86,53 @@ RSpec.describe 'Category page', type: :feature do
       click_link 'Fast Food'
       expect(current_path).to eq(category_deals_path(@fast_food.id))
     end
+
+    it 'will go to edit profile page when click on header option' do
+      sign_in @user
+      visit categories_path
+      click_link 'Edit profile'
+      expect(current_path).to eq(edit_user_registration_path)
+    end
+
+    it 'will have edit profile page content' do
+      sign_in @user
+      visit categories_path
+      click_link 'Edit profile'
+      expect(page).to have_content('EDIT PROFILE')
+      expect(page).to have_content('Unhappy?')
+    end
+
+    it 'will have edit profile page with button "Update"' do
+      sign_in @user
+      visit categories_path
+      click_link 'Edit profile'
+      expect(page).to have_button('Update')
+    end
+
+    it 'will have edit profile page with input fields' do
+      sign_in @user
+      visit categories_path
+      click_link 'Edit profile'
+      expect(page).to have_field('Email')
+      expect(page).to have_field("Password (6 characters minimum) (leave blank if you don't want to change it)")
+      expect(page).to have_field('Password (6 characters minimum)')
+      expect(page).to have_field('Current password (we need your current password to confirm your changes)')
+    end
+
+    it 'will have edit profile page with classes for bootstrap forms' do
+      sign_in @user
+      visit categories_path
+      click_link 'Edit profile'
+      expect(page).to have_css('.form-group')
+      expect(page).to have_css('.form-control')
+    end
+
+    it 'will log out when click on Sign out' do
+      sign_in @user
+      visit categories_path
+      click_button 'Sign out'
+      expect(current_path).to_not eq(categories_path)
+      expect(current_path).to eq('/')
+    end
   end
 end
