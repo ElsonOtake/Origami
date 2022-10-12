@@ -27,18 +27,11 @@
   <div class="form-group">
     <%= form.text_field :name, class: "form-control border-0 border-bottom rounded-0 mx-3 px-0 w-100", placeholder: "Category name" %>
   </div>
-  <%# <div class="m-3">
-    <% @icons.each do |icon| %>
-      <%# <div class="form-check form-check-inline">
-        <%# <input class="form-check-input" type="radio" name="inlineRadioOptions" id=<%= icon.file_name value="option1"> %>
-        <%# <label class="form-check-label mr-5 mb-5" for=<%= icon.file_name><%= image_tag(icon.file_name, alt: icon.name, width: "100")</label> %>
-      <%# </div> %>
-    <%# <% end %>
-  <%# </div> %>
   <div class="form-check form-check-inline m-3">
     <% @icons.each do |icon| %>
       <%= form.radio_button :icon_id, icon.id, id: icon.file_name %>
-      <label for=<%= icon.file_name %> class="form-check-label mr-5 mb-5"><%= image_tag(icon.file_name, alt: icon.name, width: "100") %></label>
+      <%= label_tag icon.file_name, image_tag(icon.file_name, alt: icon.name, width: "100"), class: "form-check-label mr-5 mb-5" %>
     <% end %>
   </div>
+
 <% end %>
