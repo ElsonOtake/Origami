@@ -35,7 +35,7 @@
     <%= form.text_field :amount, class: "form-control border-0 border-bottom rounded-0 mx-3 px-0 w-100", placeholder: "Amount" %>
   </div>
   <div class="form-check form-check-inline m-3">
-    <%= form.check_box :category_ids, {multiple: true}, @category.id, nil %>
+    <%= form.check_box :category_ids, {multiple: true, checked: true}, @category.id, nil %>
     <label class="form-check-label mr-5 mb-5 active">
       <%= image_tag(@category.icon.file_name, alt: @category.icon.name, width: "100") %>
     </label>
