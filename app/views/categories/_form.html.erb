@@ -12,6 +12,9 @@
       </li>
     </ul>
   </div>
+
+  <%= render "partials/message" %>
+
   <% if category.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>

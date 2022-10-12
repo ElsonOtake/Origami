@@ -8,7 +8,9 @@
     </li>
   </ul>
 </div>
-<p style="color: green"><%= notice %></p>
+
+<%= render "partials/message" %>
+
 <p>Total: <%= number_to_currency(@category.deals.sum('amount'), unit: '$', precision: 2) %></p>
 <div id="deals">
   <% @deals.each do |deal| %>

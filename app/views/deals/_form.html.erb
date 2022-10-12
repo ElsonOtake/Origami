@@ -12,6 +12,9 @@
       </li>
     </ul>
   </div>
+
+  <%= render "partials/message" %>
+
   <% if deal.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(deal.errors.count, "error") %> prohibited this deal from being saved:</h2>
