@@ -1,4 +1,17 @@
-<%= form_with(model: deal) do |form| %>
+<%= form_with(model: deal, url: category_deals_path(@category)) do |form| %>
+  <div class="d-flex w-100 mb-5">
+    <ul class="nav justify-content-between w-100 px-2 pt-2">
+      <li class="nav-item link-light">
+        <%= link_to '&larr;'.html_safe, category_deals_path(@category), class: "text-decoration-none text-white" %>
+      </li>
+      <li class="nav-item">
+        <p class="nav-link link-light">ADD A NEW TRANSACTION</p>
+      </li>
+      <li class="nav-item link-light">
+        <%= form.submit "Save", class:"nav-link bg-transparent border-0 text-decoration-none text-white" %>
+      </li>
+    </ul>
+  </div>
   <% if deal.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(deal.errors.count, "error") %> prohibited this deal from being saved:</h2>
@@ -11,22 +24,23 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
+  <div class="form-group">
+    <%= form.text_field :name, class: "form-control border-0 border-bottom rounded-0 mx-3 px-0 w-100", placeholder: "Transaction name" %>
   </div>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <div class="form-group">
+    <%= form.text_field :amount, class: "form-control border-0 border-bottom rounded-0 mx-3 px-0 w-100", placeholder: "Amount" %>
   </div>
-
-  <div>
-    <%= form.label :amount, style: "display: block" %>
-    <%= form.text_field :amount %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+  <div class="form-check form-check-inline m-3">
+    <%= form.check_box :category_ids, {multiple: true}, @category.id, nil %>
+    <label class="form-check-label mr-5 mb-5 active">
+      <%= image_tag(@category.icon.file_name, alt: @category.icon.name, width: "100") %>
+    </label>
+    <% @other_categories.each do |category| %>
+      <%= form.check_box :category_ids, {multiple: true}, category.id, nil %>
+      <label class="form-check-label mr-5 mb-5">
+        <%= image_tag(category.icon.file_name, alt: category.icon.name, width: "100") %>
+      </label>
+    <% end %>
   </div>
 <% end %>
