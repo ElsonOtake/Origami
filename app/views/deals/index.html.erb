@@ -1,17 +1,9 @@
-<div class="d-flex w-100">
-  <ul class="nav justify-content-between w-100 px-2 pt-2">
-    <li class="nav-item link-light">
-      <%= link_to '&larr;'.html_safe, categories_path, class: "text-decoration-none text-white" %>
-    </li>
-    <li class="nav-item">
-      <p class="nav-link link-light">TRANSACTION - <%= @category.name %></p>
-    </li>
-  </ul>
-</div>
+<%= render "header" %>
 
 <%= render "partials/message" %>
 
 <p class="m-3 fs-4">Total: <%= number_to_currency(@category.deals.sum('amount'), unit: '$', precision: 2) %></p>
+
 <div id="deals">
   <% @deals.each do |deal| %>
     <%= render deal %>
