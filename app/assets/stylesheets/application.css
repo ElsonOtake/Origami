@@ -48,6 +48,15 @@ body {
   box-shadow: none;
 }
 
+.add-btn {
+  background-color: #5fb523;
+  color: white
+}
+
+.add-btn:hover {
+  color: #5fb523;
+}
+
 .main_color {
   color: #3778c2;
 }
