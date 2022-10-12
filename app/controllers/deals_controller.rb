@@ -18,7 +18,7 @@ class DealsController < ApplicationController
     user = current_user
     @category = user.categories.find(params[:category_id])
     @deal = Deal.new
-    @other_categories = user.categories.where.not(id: @category)
+    @other_categories = user.categories.where.not(id: @category).includes(:icon)
   end
 
   # GET /deals/1/edit
