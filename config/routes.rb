@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'splash/index'
   resources :categories do
     resources :deals
   end
