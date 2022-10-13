@@ -1,0 +1,16 @@
+<div class="d-flex">
+  <div class="card-body min-vh-100">
+    <div class="h-50 text-center mt-5">
+      <div class="card-image w-100">
+        <%= image_tag('house.png', alt: "House of origami", width: "75%") %>
+      </div>
+    </div>
+    <p class="card-title h-25 text-center">Origami</p>
+    <div class="h-25 mb-0">
+        <%= link_to 'LOG IN', new_user_session_path,
+          class: "btn btn-primary d-flex p-3 mx-3 justify-content-center" %>
+        <%= link_to 'SIGN UP', new_user_registration_path,
+          class: "btn btn-outline-secondary border-0 d-flex p-3 mx-3 justify-content-center" %>
+    </div>
+  </div>
+</div>

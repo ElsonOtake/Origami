@@ -1,0 +1,9 @@
+<nav class="navbar navbar-expand text-white px-3 justify-content-between">
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <div class="navbar-nav">
+      <%= button_to 'Sign out', destroy_user_session_path, method: :delete, class: "nav-item nav-link bg-transparent border-0 text-decoration-none" %>
+      <%= link_to 'Edit profile', edit_user_registration_path, class: "nav-item nav-link text-decoration-none" %>
+    </div>
+  </div>
+  <span class="navbar-brand mb-0 fs-4 text-white mx-3">CATEGORIES</span>
+</nav>

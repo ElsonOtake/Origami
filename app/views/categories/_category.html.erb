@@ -1,0 +1,17 @@
+<div class="card m-3">
+  <div class="d-flex justify-content-between align-items-center mx-2">
+    <div>
+      <%= image_tag(category.icon, alt: category.name, width: "50") %>
+    </div>
+    <div>
+      <div class="card-body p-0">
+        <h5 class="card-title"><%= link_to category.name, category_deals_path(category.id), class: "text-decoration-none align-middle fs-4 regular" %></h5>
+      </div>
+    </div>
+    <div>
+      <div class="card-body p-0">
+        <p class="card-text fs-5 regular"><%= number_to_currency(category.deals.sum('amount'), unit: '$', precision: 2) %></p>
+      </div>
+    </div>
+  </div>
+</div>

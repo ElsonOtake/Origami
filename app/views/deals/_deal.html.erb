@@ -1,0 +1,15 @@
+<div class="card m-3">
+  <div class="d-flex justify-content-between px-2">
+    <div>
+      <div class="card-body p-0">
+        <p class="card-title text-primary regular fs-4"><%= deal.name %></p>
+        <p class="card-text"><small class="text-muted"><%= deal.created_at.strftime('%d %b %Y') %></small></p>
+      </div>
+    </div>
+    <div class="align-self-center">
+      <div class="card-body p-0">
+        <p class="card-text regular fs-5"><%= number_to_currency(deal.amount, unit: '$', precision: 2) %></p>
+      </div>
+    </div>
+  </div>
+</div>

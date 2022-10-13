@@ -1,0 +1,48 @@
+<% icons = ['american-football', 'astrology', 'baseball', 'basketball', 'billiard', 'bitcoin', 'blueprint',
+            'book', 'bowling', 'cabinet', 'camping-tent', 'camping', 'chess', 'circus-tent', 'claim',
+            'cleaning', 'cloth', 'coffee', 'coronavirus', 'credit-card- machine', 'cycling', 'dartboard',
+            'debit-card', 'degree', 'doctor', 'drink', 'ecology', 'elearning', 'electricity', 'entertainment',
+            'espresso', 'family', 'farm', 'fast-food', 'fishing', 'food', 'forklift', 'fruit', 'gadget',
+            'gas', 'gift', 'groceries', 'gym', 'ice-cream', 'inbox', 'insurance', 'just-married', 'laundry',
+            'loaf', 'magazine', 'massage', 'medical', 'movie', 'music', 'notre-dame', 'painting', 'panorama',
+            'parking', 'pets', 'ping-pong', 'pizza', 'poker', 'public-transport', 'puzzle', 'recycle-sign',
+            'ring', 'roller-coaster', 'salad', 'salon', 'santa-claus', 'school', 'shopping-cart', 'snack',
+            'soap', 'swimming', 'toolbox', 'tooth', 'tow-truck', 'towels', 'toy', 'trail', 'train', 'travel',
+            'trekking', 'wedding', 'workspace', 'yoga'] %>  
+
+<%= form_with(model: category) do |form| %>
+  <nav class="navbar navbar-expand text-white px-3 mb-3 justify-content-between">
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="navbar-nav">
+        <%= link_to '&larr;'.html_safe, categories_path, class: "text-decoration-none text-white fs-2" %>
+        <%= form.submit "Save" if can? :create, Category, class:"nav-link bg-transparent border-0 text-decoration-none mx-2" %>
+      </div>
+    </div>
+    <span class="navbar-brand mb-0 fs-4 text-white mx-3">ADD A CATEGORY</span>
+  </nav>
+
+  <%= render "partials/message" %>
+
+  <% if category.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
+
+      <ul>
+        <% category.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.text_field :name, class: "form-control border-0 border-bottom rounded-0 mx-3 px-0 w-100", placeholder: "Category name" %>
+  </div>
+  <div class="form-check form-check-inline m-3">
+    <% icons.each do |icon| %>
+      <%= form.radio_button :icon, "#{icon}.png", id: icon %>
+      <%= label_tag icon, image_tag("#{icon}.png", alt: icon, width: "50"), class: "form-check-label m-2" %>
+    <% end %>
+  </div>
+
+<% end %>
