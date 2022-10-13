@@ -23,7 +23,7 @@ RSpec.describe 'Category page', type: :feature do
       expect(page).to have_content('Fast Food')
       expect(page).to have_content('$0.00')
       expect(page).to have_content('Add a new category')
-      expect(page).to have_xpath("//img[@alt='fast food']")
+      expect(page).to have_xpath("//img[@alt='Fast Food']")
     end
 
     it 'will have link to "Add Category"' do
