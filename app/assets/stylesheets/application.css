@@ -20,14 +20,6 @@
   box-sizing: border-box;
 }
 
-.icon {
-  width: 10%;
-}
-
-html {
-  height: 100%;
-}
-
 body {
   min-height: 100vh;
   font-family: proxima-nova, sans-serif;
@@ -57,18 +49,6 @@ body {
   color: #5fb523;
 }
 
-.main_color {
-  color: #3778c2;
-}
-
-.next_color {
-  color: #5fb523;
-}
-
-.text_color {
-  color: #434b54;
-}
-
 .card-image {
   width: 20%;
 }
@@ -84,110 +64,10 @@ body {
   font-weight: 400;
 }
 
-.thin {
-  font-family: proxima-nova, sans-serif;
-  font-style: normal;
-  font-weight: 100;
-}
-
-.thin_italic {
-  font-family: proxima-nova, sans-serif;
-  font-style: italic;
-  font-weight: 100;
-}
-
-.extra_light {
-  font-family: proxima-nova, sans-serif;
-  font-style: normal;
-  font-weight: 200;
-}
-
-.extra_light_italic {
-  font-family: proxima-nova, sans-serif;
-  font-style: italic;
-  font-weight: 200;
-}
-
-.light {
-  font-family: proxima-nova, sans-serif;
-  font-style: normal;
-  font-weight: 300;
-}
-
-.light_italic {
-  font-family: proxima-nova, sans-serif;
-  font-style: italic;
-  font-weight: 300;
-}
-
 .regular {
   font-family: proxima-nova, sans-serif;
   font-style: normal;
   font-weight: 400;
-}
-
-.regular_italic {
-  font-family: proxima-nova, sans-serif;
-  font-style: italic;
-  font-weight: 400;
-}
-
-.medium {
-  font-family: proxima-nova, sans-serif;
-  font-style: normal;
-  font-weight: 500;
-}
-.medium_italic {
-  font-family: proxima-nova, sans-serif;
-  font-style: italic;
-  font-weight: 500;
-}
-.semibold {
-  font-family: proxima-nova, sans-serif;
-  font-style: normal;
-  font-weight: 600;
-}
-
-.semibold_italic {
-  font-family: proxima-nova, sans-serif;
-  font-style: italic;
-  font-weight: 600;
-}
-
-.bold {
-  font-family: proxima-nova, sans-serif;
-  font-style: normal;
-  font-weight: 700;
-}
-
-.bold_italic {
-  font-family: proxima-nova, sans-serif;
-  font-style: italic;
-  font-weight: 700;
-}
-
-.extrabold {
-  font-family: proxima-nova, sans-serif;
-  font-style: normal;
-  font-weight: 800;
-}
-
-.extrabold_italic {
-  font-family: proxima-nova, sans-serif;
-  font-style: italic;
-  font-weight: 800;
-}
-
-.black {
-  font-family: proxima-nova, sans-serif;
-  font-style: normal;
-  font-weight: 900;
-}
-
-.black_italic {
-  font-family: proxima-nova, sans-serif;
-  font-style: italic;
-  font-weight: 900;
 }
 
 @media only screen and (min-width: 650px) {
