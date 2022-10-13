@@ -4,7 +4,7 @@ RSpec.describe 'Deals page', type: :feature do
   describe 'with FactoryBot login' do
     before(:each) do
       @user = FactoryBot.create(:user)
-      @icon = Icon.create(name: 'fast food', file_name: 'fast-food.png')
+      @icon = 'fast-food.png'
       @fast_food = Category.create(name: 'Fast Food', icon: @icon, user: @user)
       @pizza_hut = @fast_food.deals.create(name: 'Pizza Hut', amount: 12.5, author: @user)
       @donkin_donuts = @fast_food.deals.create(name: 'Donkin Donuts', amount: 25, author: @user)

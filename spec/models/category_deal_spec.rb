@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Deal, type: :model do
   before(:each) do
-    @yoga = Icon.new(name: 'yoga', file_name: 'yoga.png')
-    @entertainment = Icon.create(name: 'entertainment', file_name: 'entertainment.png')
-    @camping = Icon.create(name: 'camping', file_name: 'camping.png')
+    @yoga = 'yoga.png'
+    @entertainment = 'entertainment.png'
+    @camping = 'camping.png'
     @author = User.new(name: 'Name Surname', email: 'deal@origami.com', password: 'password')
     @deal = Deal.new(name: 'Deal name', amount: 25, author: @author)
   end
