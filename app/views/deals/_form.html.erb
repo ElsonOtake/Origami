@@ -33,12 +33,12 @@
   <div class="form-check form-check-inline m-3">
     <%= form.check_box :category_ids, {multiple: true, checked: true}, @category.id, nil %>
     <label class="form-check-label mr-5 mb-5 active">
-      <%= image_tag(@category.icon.file_name, alt: @category.icon.name, width: "50") %>
+      <%= image_tag(@category.icon, alt: @category.name, width: "50") %>
     </label>
     <% @other_categories.each do |category| %>
       <%= form.check_box :category_ids, {multiple: true}, category.id, nil %>
       <label class="form-check-label mr-5 mb-5">
-        <%= image_tag(category.icon.file_name, alt: category.icon.name, width: "50") %>
+        <%= image_tag(category.icon, alt: category.name, width: "50") %>
       </label>
     <% end %>
   </div>
