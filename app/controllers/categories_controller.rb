@@ -14,7 +14,6 @@ class CategoriesController < ApplicationController
 
   # GET /categories/new
   def new
-    @icons = Icon.all
     @category = Category.new
   end
 
@@ -23,7 +22,6 @@ class CategoriesController < ApplicationController
 
   # POST /categories or /categories.json
   def create
-    @icons = Icon.all
     @category = Category.new(category_params)
     @category.user = current_user
 
@@ -70,6 +68,6 @@ class CategoriesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def category_params
-    params.require(:category).permit(:user_id, :name, :icon_id)
+    params.require(:category).permit(:user_id, :name, :icon)
   end
 end
