@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe 'Splash page', type: :feature do
   describe 'without FactoryBot login' do
-
     it 'will present splash page' do
       visit '/'
       expect(current_path).to eq(root_path)
