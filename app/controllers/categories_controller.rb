@@ -6,7 +6,7 @@ class CategoriesController < ApplicationController
   # GET /categories or /categories.json
   def index
     user = current_user
-    @categories = user.categories.all.order(created_at: :desc).includes(:icon)
+    @categories = user.categories.all.order(created_at: :desc)
   end
 
   # GET /categories/1 or /categories/1.json
