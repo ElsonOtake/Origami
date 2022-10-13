@@ -1,3 +1,15 @@
+<% icons = ['american-football', 'astrology', 'baseball', 'basketball', 'billiard', 'bitcoin', 'blueprint',
+            'book', 'bowling', 'cabinet', 'camping-tent', 'camping', 'chess', 'circus-tent', 'claim',
+            'cleaning', 'cloth', 'coffee', 'coronavirus', 'credit-card- machine', 'cycling', 'dartboard',
+            'debit-card', 'degree', 'doctor', 'drink', 'ecology', 'elearning', 'electricity', 'entertainment',
+            'espresso', 'family', 'farm', 'fast-food', 'fishing', 'food', 'forklift', 'fruit', 'gadget',
+            'gas', 'gift', 'groceries', 'gym', 'ice-cream', 'inbox', 'insurance', 'just-married', 'laundry',
+            'loaf', 'magazine', 'massage', 'medical', 'movie', 'music', 'notre-dame', 'painting', 'panorama',
+            'parking', 'pets', 'ping-pong', 'pizza', 'poker', 'public-transport', 'puzzle', 'recycle-sign',
+            'ring', 'roller-coaster', 'salad', 'salon', 'santa-claus', 'school', 'shopping-cart', 'snack',
+            'soap', 'swimming', 'toolbox', 'tooth', 'tow-truck', 'towels', 'toy', 'trail', 'train', 'travel',
+            'trekking', 'wedding', 'workspace', 'yoga'] %>  
+
 <%= form_with(model: category) do |form| %>
   <nav class="navbar navbar-expand text-white px-3 mb-3 justify-content-between">
     <div class="collapse navbar-collapse" id="navbarNav">
@@ -27,9 +39,9 @@
     <%= form.text_field :name, class: "form-control border-0 border-bottom rounded-0 mx-3 px-0 w-100", placeholder: "Category name" %>
   </div>
   <div class="form-check form-check-inline m-3">
-    <% @icons.each do |icon| %>
-      <%= form.radio_button :icon_id, icon.id, id: icon.file_name %>
-      <%= label_tag icon.file_name, image_tag(icon.file_name, alt: icon.name, width: "50"), class: "form-check-label m-2" %>
+    <% icons.each do |icon| %>
+      <%= form.radio_button :icon, "#{icon}.png", id: icon %>
+      <%= label_tag icon, image_tag("#{icon}.png", alt: icon, width: "50"), class: "form-check-label m-2" %>
     <% end %>
   </div>
 

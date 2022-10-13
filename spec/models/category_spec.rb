@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Category, type: :model do
   before(:each) do
     @user = User.new(name: 'Name Surname', email: 'category@origami.com', password: 'password')
-    @icon = Icon.new(name: 'Icon name', file_name: 'origami.png')
+    @icon = 'origami.png'
     @category = Category.new(name: 'Category name', icon: @icon, user: @user)
   end
 

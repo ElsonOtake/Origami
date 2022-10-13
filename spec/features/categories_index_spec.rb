@@ -4,7 +4,7 @@ RSpec.describe 'Category page', type: :feature do
   describe 'with FactoryBot login' do
     before(:each) do
       @user = FactoryBot.create(:user)
-      @icon = Icon.create(name: 'fast food', file_name: 'fast-food.png')
+      @icon = 'fast-food.png'
       @fast_food = Category.create(name: 'Fast Food', icon: @icon, user: @user)
     end
 
@@ -23,7 +23,7 @@ RSpec.describe 'Category page', type: :feature do
       expect(page).to have_content('Fast Food')
       expect(page).to have_content('$0.00')
       expect(page).to have_content('Add a new category')
-      expect(page).to have_xpath("//img[@alt='fast food']")
+      expect(page).to have_xpath("//img[@alt='Fast Food']")
     end
 
     it 'will have link to "Add Category"' do
