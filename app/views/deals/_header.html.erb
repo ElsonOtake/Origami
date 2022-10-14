@@ -4,5 +4,5 @@
       <%= link_to '&larr;'.html_safe, categories_path, class: "text-decoration-none text-white fs-2" %>
     </div>
   </div>
-  <span class="navbar-brand mb-0 fs-4 text-white mx-3">TRANSACTION - <%= @category.name %></span>
+  <span class="navbar-brand mb-0 fs-4 text-white mx-3">TRANSACTION - <%= @category.name[..10] %></span>
 </nav>

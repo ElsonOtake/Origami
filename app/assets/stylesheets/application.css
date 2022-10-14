@@ -29,6 +29,10 @@ body {
 
 .navbar {
   background-color: #3778c2;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 2;
 }
 
 .nav-link {
@@ -40,6 +44,12 @@ body {
   box-shadow: none;
 }
 
+.main {
+  position: relative;
+  top: 5rem;
+  margin-bottom: 10rem;
+}
+
 .add-btn {
   background-color: #5fb523;
   color: white;
@@ -48,7 +58,8 @@ body {
 }
 
 .add-btn:hover {
-  color: #5fb523;
+  background-color: #5fb523;
+  color: white;
 }
 
 .card-image {

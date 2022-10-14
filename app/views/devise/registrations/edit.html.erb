@@ -3,7 +3,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <div class="navbar-nav">
         <%= link_to '&larr;'.html_safe, categories_path, class: "text-decoration-none text-white fs-2" %>
-        <%= f.submit "Update" if can? :update, User, class:"nav-link bg-transparent border-0 text-decoration-none text-white mx-2" %>
+        <%= f.submit "Update", class:"nav-link bg-transparent border-0 text-decoration-none text-white mx-2" %>
       </div>
     </div>
     <span class="navbar-brand mb-0 fs-4 text-white mx-3">EDIT PROFILE</span>
@@ -38,7 +38,4 @@
   </div>
 <% end %>
 <br /><br />
-<p class="m-3">Unhappy? <%= button_to "Cancel my account" if can? :destroy, User, registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger mx-3" %></p>
-<% if cannot? :destroy , User %>
-  <span class="permission-message mx-3 text-danger">You aren't allowed to delete this user.</span>
-<% end %>
+<p class="m-3">Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger mx-3" %></p>
