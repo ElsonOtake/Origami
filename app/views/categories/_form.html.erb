@@ -37,12 +37,12 @@
 
   <div class="form-group">
     <%= form.text_field :name, class: "form-control border-0 border-bottom rounded-0 mx-3 px-0 w-100", placeholder: "Category name" %>
-  </div>
-  <div class="form-check form-check-inline m-3">
-    <% icons.each do |icon| %>
-      <%= form.radio_button :icon, "#{icon}.png", id: icon %>
-      <%= label_tag icon, image_tag("#{icon}.png", alt: icon, width: "50"), class: "form-check-label m-2" %>
-    <% end %>
+    <div class="form-check form-check-inline m-3">
+      <% icons.each do |icon| %>
+        <%= form.radio_button :icon, "#{icon}.png", id: icon %>
+        <%= label_tag icon, image_tag("#{icon}.png", alt: icon, width: "50"), class: "form-check-label m-2" %>
+      <% end %>
+    </div>
   </div>
 
 <% end %>

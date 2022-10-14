@@ -43,6 +43,8 @@ body {
 .add-btn {
   background-color: #5fb523;
   color: white;
+  position: fixed;
+  bottom: 0;
 }
 
 .add-btn:hover {
@@ -60,8 +62,7 @@ body {
 
 .lobster {
   font-family: lobster, sans-serif;
-  font-style: normal;
-  font-weight: 400;
+  font-size: 4rem;
 }
 
 .regular {
