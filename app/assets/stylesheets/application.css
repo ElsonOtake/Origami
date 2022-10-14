@@ -48,7 +48,8 @@ body {
 }
 
 .add-btn:hover {
-  color: #5fb523;
+  background-color: #5fb523;
+  color: white;
 }
 
 .card-image {
