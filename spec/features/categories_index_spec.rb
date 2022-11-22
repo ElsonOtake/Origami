@@ -114,9 +114,7 @@ RSpec.describe 'Category page', type: :feature do
       visit categories_path
       click_link 'Edit profile'
       expect(page).to have_field('Email')
-      expect(page).to have_field("Password (6 characters minimum) (leave blank if you don't want to change it)")
       expect(page).to have_field('Password (6 characters minimum)')
-      expect(page).to have_field('Current password (we need your current password to confirm your changes)')
     end
 
     it 'will have edit profile page with classes for bootstrap forms' do
