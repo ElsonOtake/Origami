@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :user do
+  factory :customer do
     name { 'username' }
     email { 'email@origami.com' }
     password { 'password' }

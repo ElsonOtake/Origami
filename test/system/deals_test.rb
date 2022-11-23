@@ -16,7 +16,7 @@ class DealsTest < ApplicationSystemTestCase
 
     fill_in 'Amount', with: @deal.amount
     fill_in 'Name', with: @deal.name
-    fill_in 'User', with: @deal.user_id
+    fill_in 'Customer', with: @deal.customer_id
     click_on 'Create Deal'
 
     assert_text 'Deal was successfully created'
@@ -29,7 +29,7 @@ class DealsTest < ApplicationSystemTestCase
 
     fill_in 'Amount', with: @deal.amount
     fill_in 'Name', with: @deal.name
-    fill_in 'User', with: @deal.user_id
+    fill_in 'Customer', with: @deal.customer_id
     click_on 'Update Deal'
 
     assert_text 'Deal was successfully updated'

@@ -3,7 +3,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <div class="navbar-nav">
         <%= link_to '&larr;'.html_safe, root_path, class: "text-decoration-none text-white fs-2" %>
-        <%= f.submit "Send me" if can? :destroy, User, class:"nav-link bg-transparent border-0 text-decoration-none mx-2" %>
+        <%= f.submit "Send me" if can? :destroy, Customer, class:"nav-link bg-transparent border-0 text-decoration-none mx-2" %>
       </div>
     </div>
     <span class="navbar-brand mb-0 fs-4 text-white mx-3">FORGOT PASSWORD?</span>
@@ -18,6 +18,6 @@
   </div>
 <% end %>
 
-<% if cannot? :destroy , User %>
+<% if cannot? :destroy , Customer %>
   <span class="permission-message p-3 text-danger">You aren't allowed to request password instructions.</span>
 <% end %>

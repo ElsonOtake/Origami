@@ -1,36 +1,36 @@
 class Ability
   include CanCan::Ability
 
-  def initialize(user)
-    user ||= User.new
+  def initialize(customer)
+    customer ||= Customer.new
 
-    can :read, User
-    can :create, User
-    can :update, User, user: user
-    can :read, Category, user: user
-    can :create, Category, user: user
-    can :read, Deal, author: user
-    can :create, Deal, author: user
+    can :read, Customer
+    can :create, Customer
+    can :update, Customer, customer: customer
+    can :read, Category, customer: customer
+    can :create, Category, customer: customer
+    can :read, Deal, author: customer
+    can :create, Deal, author: customer
 
-    # Define abilities for the user here. For example:
+    # Define abilities for the customer here. For example:
     #
-    #   return unless user.present?
+    #   return unless customer.present?
     #   can :read, :all
-    #   return unless user.admin?
+    #   return unless customer.admin?
     #   can :manage, :all
     #
-    # The first argument to `can` is the action you are giving the user
+    # The first argument to `can` is the action you are giving the customer
     # permission to do.
     # If you pass :manage it will apply to every action. Other common actions
     # here are :read, :create, :update and :destroy.
     #
-    # The second argument is the resource the user can perform the action on.
+    # The second argument is the resource the customer can perform the action on.
     # If you pass :all it will apply to every resource. Otherwise pass a Ruby
     # class of the resource.
     #
     # The third argument is an optional hash of conditions to further filter the
     # objects.
-    # For example, here the user can only update published articles.
+    # For example, here the customer can only update published articles.
     #
     #   can :update, Article, published: true
     #

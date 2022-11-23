@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Category, type: :model do
   before(:each) do
-    @user = User.new(name: 'Name Surname', email: 'category@origami.com', password: 'password')
+    @customer = Customer.new(name: 'Name Surname', email: 'category@origami.com', password: 'password')
     @icon = 'origami.png'
-    @category = Category.new(name: 'Category name', icon: @icon, user: @user)
+    @category = Category.new(name: 'Category name', icon: @icon, customer: @customer)
   end
 
   it 'is valid with valid attributes' do
@@ -21,8 +21,8 @@ RSpec.describe Category, type: :model do
     expect(@category).to_not be_valid
   end
 
-  it 'is not valid without an user' do
-    @category.user = nil
+  it 'is not valid without an customer' do
+    @category.customer = nil
     expect(@category).to_not be_valid
   end
 

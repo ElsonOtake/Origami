@@ -17,7 +17,7 @@ class DealsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should create deal' do
     assert_difference('Deal.count') do
-      post deals_url, params: { deal: { amount: @deal.amount, name: @deal.name, user_id: @deal.user_id } }
+      post deals_url, params: { deal: { amount: @deal.amount, name: @deal.name, customer_id: @deal.customer_id } }
     end
 
     assert_redirected_to deal_url(Deal.last)
@@ -34,7 +34,7 @@ class DealsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should update deal' do
-    patch deal_url(@deal), params: { deal: { amount: @deal.amount, name: @deal.name, user_id: @deal.user_id } }
+    patch deal_url(@deal), params: { deal: { amount: @deal.amount, name: @deal.name, customer_id: @deal.customer_id } }
     assert_redirected_to deal_url(@deal)
   end
 

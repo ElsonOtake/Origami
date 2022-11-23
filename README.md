@@ -4,7 +4,7 @@
 
 > The Ruby on Rails capstone project is about building a mobile web application to manage budget.
 
-This application allows the user to:
+This application allows the customer to:
 
 - Register and log in, so that the data is private to them;
 - Introduce new transactions associated with a category;

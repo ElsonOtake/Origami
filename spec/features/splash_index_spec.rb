@@ -35,7 +35,7 @@ RSpec.describe 'Splash page', type: :feature do
     it 'will go to log in page when click on button' do
       visit root_path
       click_link 'LOG IN'
-      expect(current_path).to eq(new_user_session_path)
+      expect(current_path).to eq(new_customer_session_path)
     end
 
     it 'will have log in page content' do
@@ -73,7 +73,7 @@ RSpec.describe 'Splash page', type: :feature do
     it 'will go to sign up page when click on button' do
       visit root_path
       click_link 'SIGN UP'
-      expect(current_path).to eq(new_user_registration_path)
+      expect(current_path).to eq(new_customer_registration_path)
     end
 
     it 'will have sign up page content' do

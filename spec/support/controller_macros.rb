@@ -6,11 +6,11 @@ module ControllerMacros
     end
   end
 
-  def login_user
+  def login_customer
     before(:each) do
-      @request.env['devise.mapping'] = Devise.mappings[:user]
-      user = FactoryBot.create(:user)
-      sign_in user
+      @request.env['devise.mapping'] = Devise.mappings[:customer]
+      customer = FactoryBot.create(:customer)
+      sign_in customer
     end
   end
 end
