@@ -3,19 +3,19 @@ require 'rails_helper'
 RSpec.describe 'Category page', type: :feature do
   describe 'with FactoryBot login' do
     before(:each) do
-      @user = FactoryBot.create(:user)
+      @customer = FactoryBot.create(:customer)
       @icon = 'fast-food.png'
-      @fast_food = Category.create(name: 'Fast Food', icon: @icon, user: @user)
+      @fast_food = Category.create(name: 'Fast Food', icon: @icon, customer: @customer)
     end
 
     it 'will present categories page' do
-      sign_in @user
+      sign_in @customer
       visit '/categories'
       expect(current_path).to eq(categories_path)
     end
 
     it 'will have page content' do
-      sign_in @user
+      sign_in @customer
       visit categories_path
       expect(page).to have_content('CATEGORIES')
       expect(page).to have_content('Sign out')
@@ -27,13 +27,13 @@ RSpec.describe 'Category page', type: :feature do
     end
 
     it 'will have link to "Add Category"' do
-      sign_in @user
+      sign_in @customer
       visit categories_path
       expect(page).to have_link('Add a new category')
     end
 
     it 'will have classes for bootstrap cards' do
-      sign_in @user
+      sign_in @customer
       visit categories_path
       expect(page).to have_css('.card')
       expect(page).to have_css('.card-body')
@@ -42,28 +42,28 @@ RSpec.describe 'Category page', type: :feature do
     end
 
     it 'will go to add a new category page when click on button' do
-      sign_in @user
+      sign_in @customer
       visit categories_path
       click_link 'Add a new category'
       expect(current_path).to eq(new_category_path)
     end
 
     it 'will have new category page content' do
-      sign_in @user
+      sign_in @customer
       visit categories_path
       click_link 'Add a new category'
       expect(page).to have_content('ADD A CATEGORY')
     end
 
     it 'will have new category page with button "Save"' do
-      sign_in @user
+      sign_in @customer
       visit categories_path
       click_link 'Add a new category'
       expect(page).to have_button('Save')
     end
 
     it 'will have new Category page with input fields' do
-      sign_in @user
+      sign_in @customer
       visit categories_path
       click_link 'Add a new category'
       expect(page).to have_field('Category name')
@@ -71,7 +71,7 @@ RSpec.describe 'Category page', type: :feature do
     end
 
     it 'will have new Category page with classes for bootstrap forms' do
-      sign_in @user
+      sign_in @customer
       visit categories_path
       click_link 'Add a new category'
       expect(page).to have_css('.form-group')
@@ -81,21 +81,21 @@ RSpec.describe 'Category page', type: :feature do
     end
 
     it 'will go to transactions page when click on category name' do
-      sign_in @user
+      sign_in @customer
       visit categories_path
       click_link 'Fast Food'
       expect(current_path).to eq(category_deals_path(@fast_food.id))
     end
 
     it 'will go to edit profile page when click on header option' do
-      sign_in @user
+      sign_in @customer
       visit categories_path
       click_link 'Edit profile'
-      expect(current_path).to eq(edit_user_registration_path)
+      expect(current_path).to eq(edit_customer_registration_path)
     end
 
     it 'will have edit profile page content' do
-      sign_in @user
+      sign_in @customer
       visit categories_path
       click_link 'Edit profile'
       expect(page).to have_content('EDIT PROFILE')
@@ -103,14 +103,14 @@ RSpec.describe 'Category page', type: :feature do
     end
 
     it 'will have edit profile page with button "Update"' do
-      sign_in @user
+      sign_in @customer
       visit categories_path
       click_link 'Edit profile'
       expect(page).to have_button('Update')
     end
 
     it 'will have edit profile page with input fields' do
-      sign_in @user
+      sign_in @customer
       visit categories_path
       click_link 'Edit profile'
       expect(page).to have_field('Email')
@@ -118,7 +118,7 @@ RSpec.describe 'Category page', type: :feature do
     end
 
     it 'will have edit profile page with classes for bootstrap forms' do
-      sign_in @user
+      sign_in @customer
       visit categories_path
       click_link 'Edit profile'
       expect(page).to have_css('.form-group')
@@ -126,7 +126,7 @@ RSpec.describe 'Category page', type: :feature do
     end
 
     it 'will log out when click on Sign out' do
-      sign_in @user
+      sign_in @customer
       visit categories_path
       click_button 'Sign out'
       expect(current_path).to_not eq(categories_path)

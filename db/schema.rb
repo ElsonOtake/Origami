@@ -15,17 +15,30 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_11_151423) do
   enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
-    t.bigint "user_id", null: false
+    t.bigint "customer_id", null: false
     t.string "name"
     t.string "icon"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_categories_on_user_id"
+    t.index ["customer_id"], name: "index_categories_on_customer_id"
   end
 
   create_table "categories_deals", id: false, force: :cascade do |t|
     t.bigint "category_id", null: false
     t.bigint "deal_id", null: false
+  end
+
+  create_table "customers", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name", null: false
+    t.index ["email"], name: "index_customers_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
 
   create_table "deals", force: :cascade do |t|
@@ -37,19 +50,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_11_151423) do
     t.index ["author_id"], name: "index_deals_on_author_id"
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "name", null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  end
-
-  add_foreign_key "categories", "users"
-  add_foreign_key "deals", "users", column: "author_id"
+  add_foreign_key "categories", "customers"
+  add_foreign_key "deals", "customers", column: "author_id"
 end

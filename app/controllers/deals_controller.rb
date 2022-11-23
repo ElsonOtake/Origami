@@ -1,12 +1,12 @@
 class DealsController < ApplicationController
   before_action :set_deal, only: %i[show edit update destroy]
-  before_action :authenticate_user!
+  before_action :authenticate_customer!
   load_and_authorize_resource
 
   # GET /deals or /deals.json
   def index
-    user = current_user
-    @category = user.categories.find(params[:category_id])
+    customer = current_customer
+    @category = customer.categories.find(params[:category_id])
     @deals = @category.deals.order(created_at: :desc)
   end
 
@@ -15,10 +15,10 @@ class DealsController < ApplicationController
 
   # GET /deals/new
   def new
-    user = current_user
-    @category = user.categories.find(params[:category_id])
+    customer = current_customer
+    @category = customer.categories.find(params[:category_id])
     @deal = Deal.new
-    @other_categories = user.categories.where.not(id: @category)
+    @other_categories = customer.categories.where.not(id: @category)
   end
 
   # GET /deals/1/edit
@@ -26,11 +26,11 @@ class DealsController < ApplicationController
 
   # POST /deals or /deals.json
   def create
-    user = current_user
-    @category = user.categories.find(params[:category_id])
+    customer = current_customer
+    @category = customer.categories.find(params[:category_id])
     @deal = Deal.new(deal_params)
-    @deal.author = current_user
-    @other_categories = user.categories.where.not(id: @category)
+    @deal.author = current_customer
+    @other_categories = customer.categories.where.not(id: @category)
     categories = Category.where(id: params[:category_ids])
     @deal.categories.push(categories)
     respond_to do |format|
