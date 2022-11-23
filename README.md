@@ -54,7 +54,6 @@ This application allows the user to:
     <li><a href="https://github.com/CanCanCommunity/cancancan">Cancancan</a></li>
     <li><a href="https://github.com/flyerhzm/bullet">Bullet</a></li>
     <li><a href="https://github.com/rspec/rspec-rails">RSpec Rails</a></li>
-    <li><a href="https://github.com/teamcapybara/capybara">Capybara</a></li>
     <li><a href="https://github.com/thoughtbot/factory_bot">Factory Bot</a></li>
   </ul>
 </details>
@@ -195,6 +194,7 @@ I would like to thank:
 - [Microverse](https://www.microverse.org/)
 - [W3Schools](https://www.w3schools.com/)
 - [Stack Overflow](https://stackoverflow.com/)
+- [Render](https://dashboard.render.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
