@@ -5,26 +5,23 @@ class DealsController < ApplicationController
 
   # GET /deals or /deals.json
   def index
-    customer = current_customer
-    @category = customer.categories.find(params[:category_id])
+    @category = current_customer.categories.find(params[:category_id])
     @deals = @category.deals.order(created_at: :desc)
   end
 
   # GET /deals/new
   def new
-    customer = current_customer
-    @category = customer.categories.find(params[:category_id])
+    @category = current_customer.categories.find(params[:category_id])
     @deal = Deal.new
-    @other_categories = customer.categories.where.not(id: @category)
+    @other_categories = current_customer.categories.where.not(id: @category)
   end
 
   # POST /deals or /deals.json
   def create
-    customer = current_customer
-    @category = customer.categories.find(params[:category_id])
+    @category = current_customer.categories.find(params[:category_id])
     @deal = Deal.new(deal_params)
     @deal.author = current_customer
-    @other_categories = customer.categories.where.not(id: @category)
+    @other_categories = current_customer.categories.where.not(id: @category)
     categories = Category.where(id: params[:category_ids])
     @deal.categories.push(categories)
     if @deal.save
