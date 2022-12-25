@@ -10,9 +10,6 @@ class DealsController < ApplicationController
     @deals = @category.deals.order(created_at: :desc)
   end
 
-  # GET /deals/1 or /deals/1.json
-  def show; end
-
   # GET /deals/new
   def new
     customer = current_customer
@@ -20,9 +17,6 @@ class DealsController < ApplicationController
     @deal = Deal.new
     @other_categories = customer.categories.where.not(id: @category)
   end
-
-  # GET /deals/1/edit
-  def edit; end
 
   # POST /deals or /deals.json
   def create
@@ -41,29 +35,6 @@ class DealsController < ApplicationController
         format.html { redirect_to category_deals_url(@category), notice: 'Unprocessable transaction.' }
         format.json { render json: @deal.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # PATCH/PUT /deals/1 or /deals/1.json
-  def update
-    respond_to do |format|
-      if @deal.update(deal_params)
-        format.html { redirect_to deal_url(@deal), notice: 'Deal was successfully updated.' }
-        format.json { render :show, status: :ok, location: @deal }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @deal.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /deals/1 or /deals/1.json
-  def destroy
-    @deal.destroy
-
-    respond_to do |format|
-      format.html { redirect_to deals_url, notice: 'Deal was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
