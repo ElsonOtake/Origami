@@ -27,14 +27,10 @@ class DealsController < ApplicationController
     @other_categories = customer.categories.where.not(id: @category)
     categories = Category.where(id: params[:category_ids])
     @deal.categories.push(categories)
-    respond_to do |format|
-      if @deal.save
-        format.html { redirect_to category_deals_url(@category), notice: 'Transaction was successfully created.' }
-        format.json { render :show, status: :created, location: @deal }
-      else
-        format.html { redirect_to category_deals_url(@category), notice: 'Unprocessable transaction.' }
-        format.json { render json: @deal.errors, status: :unprocessable_entity }
-      end
+    if @deal.save
+      redirect_to category_deals_url(@category), notice: 'Transaction was successfully created.'
+    else
+      redirect_to category_deals_url(@category), notice: 'Unprocessable transaction.'
     end
   end
 
