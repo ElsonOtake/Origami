@@ -1,7 +1,5 @@
 <%= render "header" %>
 
-<%= render "partials/message" %>
-
 <div class="main">
   <p class="m-3 fs-4">Total: <%= number_to_currency(@category.deals.sum('amount'), unit: '$', precision: 2) %></p>
 
