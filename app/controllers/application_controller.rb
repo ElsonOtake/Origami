@@ -7,14 +7,14 @@ class ApplicationController < ActionController::Base
 
   # Catch all CanCan errors and alert the customer of the exception
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to root_url, alert: exception.message
+    redirect_to root_url, notice: exception.message
   end
 
   protected
 
   def update_allowed_parameters
     devise_parameter_sanitizer.permit(:sign_up) do |u|
-      u.permit(:name, :email, :password, :password_confirmation)
+      u.permit(:name, :email, :password)
     end
   end
 end
