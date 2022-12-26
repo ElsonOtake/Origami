@@ -82,6 +82,14 @@ body {
   font-weight: 400;
 }
 
+.alert_msg {
+  color: red;
+}
+
+.notice_msg {
+  color: blue;
+}
+
 @media only screen and (min-width: 650px) {
   .card-image img {
     width: 60%;
