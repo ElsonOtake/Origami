@@ -6,9 +6,9 @@ class Ability
 
     can :read, Customer
     can :create, Customer
-    can :update, Customer, customer: customer
-    can :read, Category, customer: customer
-    can :create, Category, customer: customer
+    can(:update, Customer, customer:)
+    can(:read, Category, customer:)
+    can(:create, Category, customer:)
     can :read, Deal, author: customer
     can :create, Deal, author: customer
 
