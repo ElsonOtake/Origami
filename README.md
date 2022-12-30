@@ -162,6 +162,8 @@ To run tests, run the following command:
 ## 🔭 Future Features <a name="future-features"></a>
 
 - [ ] **Split spending in multi-cost center cases**
+- [ ] **CRUD for Categories and Transactions**
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
