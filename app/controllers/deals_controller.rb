@@ -5,7 +5,7 @@ class DealsController < ApplicationController
 
   # GET /deals or /deals.json
   def index
-    @deals = @category.deals.order(created_at: :desc)
+    @deals = @category.deals.includes([:categories]).order(created_at: :desc)
   end
 
   # GET /deals/new
