@@ -5,7 +5,7 @@ class DealsController < ApplicationController
 
   # GET /deals or /deals.json
   def index
-    @deals = @category.deals.includes([:categories]).order(created_at: :desc)
+    @deals = @category.deals.distinct.order(created_at: :desc)
   end
 
   # GET /deals/new
@@ -18,8 +18,9 @@ class DealsController < ApplicationController
   def create
     @deal = Deal.new(deal_params)
     @deal.author = current_customer
-    categories = Category.where(id: params[:category_ids])
+    categories = Category.where(id: params[:deal][:category_ids])
     @deal.categories.push(categories)
+    @deal.amount /= categories.size if categories.size > 1
     if @deal.save
       redirect_to category_deals_url(@category), notice: 'Transaction was successfully created.'
     else

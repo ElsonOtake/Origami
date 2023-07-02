@@ -8,11 +8,11 @@
     </div>
 
     <div>
-      <% deal.categories.each do |category| %>
+      <% deal.categories.distinct.each do |category| %>
         <%= image_tag(category.icon, width: "25") %>
       <% end %>
     </div>
-    
+
     <div class="content">
       <%= number_to_currency(deal.amount, unit: '$', precision: 2) %>
     </div>
