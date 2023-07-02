@@ -1,0 +1,40 @@
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <%= link_to root_path do %>
+      <figure class="image is-48x48">
+        <img src=<%= image_path 'house.png' %> >
+      </figure>
+    <% end %>
+
+    <a role="button" class="navbar-burger has-text-white" aria-label="menu" aria-expanded="false" data-target="navbarOrigami">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+
+  <div id="navbarOrigami" class="navbar-menu">
+    <div class="navbar-start">
+      <div class="navbar-item">
+        <%= link_to "Add category", new_category_path, class: " button is-white is-outlined" if controller_name == "categories" %>
+      </div>
+      <div class="navbar-item">
+        <%= link_to "Add transaction", new_category_deal_path(@category), class: "button is-white is-outlined"  if controller_name == "deals" %>
+      </div>
+    </div>
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <% if customer_signed_in? %>
+            <%= link_to 'Edit profile', edit_customer_registration_path, class: "button is-white is-outlined" %>
+            <%= link_to 'Sign out', destroy_customer_session_path, data: { turbo_method: :delete }, class: "button is-white is-outlined" %>
+          <% else %>
+            <%= link_to 'Sign up', new_customer_registration_path, class: "button is-white is-outlined" %>
+            <%= link_to 'Sign in', new_customer_session_path, class: "button is-white is-outlined" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
