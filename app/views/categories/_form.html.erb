@@ -11,38 +11,33 @@
             'trekking', 'wedding', 'workspace', 'yoga'] %>  
 
 <%= form_with(model: category) do |form| %>
-  <nav class="navbar navbar-expand text-white px-3 mb-3 justify-content-between">
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <div class="navbar-nav">
-        <%= link_to '&larr;'.html_safe, categories_path, class: "text-decoration-none text-white fs-2" %>
-        <%= form.submit "Save", class:"nav-link bg-transparent border-0 text-decoration-none mx-2" %>
-      </div>
-    </div>
-    <span class="navbar-brand mb-0 fs-4 text-white mx-3">ADD A CATEGORY</span>
-  </nav>
+  <% if category.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
 
-  <div class="main">
-    <% if category.errors.any? %>
-      <div style="color: red">
-        <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
-
-        <ul>
-          <% category.errors.each do |error| %>
-            <li><%= error.full_message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-
-    <div class="form-group">
-      <%= form.text_field :name, class: "form-control border-0 border-bottom rounded-0 mx-3 px-0 w-100", placeholder: "Category name" %>
-      <div class="form-check form-check-inline m-3">
-        <% icons.each do |icon| %>
-          <%= form.radio_button :icon, "#{icon}.png" %>
-          <%= form.label icon, image_tag("#{icon}.png", alt: icon, width: "50"), class: "form-check-label" %>
+      <ul>
+        <% category.errors.each do |error| %>
+          <li><%= error.full_message %></li>
         <% end %>
-      </div>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name, class: "label" %>
+    <div class="control">
+      <%= form.text_field :name, class: "input", autofocus: true, autocomplete: "name" %>
     </div>
   </div>
+  <div class="field">
+    <% icons.each do |icon| %>
+      <%= form.radio_button :icon, "#{icon}.png" %>
+      <%= form.label :icon, image_tag("#{icon}.png", alt: icon, width: "50"), class: "form-check-label" %>
+    <% end %>
+  </div>
 
+  <div class="control actions buttons">
+    <%= form.submit "Save", class: "button is-link is-light" %>
+    <%= link_to "Back", categories_path, class: "button is-link is-light" %>
+  </div>
 <% end %>
