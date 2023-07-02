@@ -1,9 +1,3 @@
-<%= render "header" %>
-
-<div class="main">
-  <% @categories.each do |category| %>
-    <%= render category %>
-  <% end %>
-</div>
-
-<%= link_to "Add a new category", new_category_path, class: "btn add-btn rounded-0 p-3 w-100" %>
+<% @categories.each do |category| %>
+  <%= render category %>
+<% end %>
