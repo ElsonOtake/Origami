@@ -1,8 +1,8 @@
 <nav class="navbar is-info" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <%= link_to root_path do %>
-      <figure class="image is-48x48">
-        <img src=<%= image_path 'house.png' %> >
+      <figure class="image is-64x64 navbar-item">
+        <img src=<%= image_path 'house-icon.png' %> >
       </figure>
     <% end %>
 
@@ -16,6 +16,9 @@
 
   <div id="navbarOrigami" class="navbar-menu">
     <div class="navbar-start">
+      <div class="navbar-item subtitle has-text-white has-text-weight-bold m-auto">
+        Origami
+      </div>
       <div class="navbar-item">
         <%= link_to "Add category", new_category_path, class: " button is-white is-outlined" if controller_name == "categories" %>
       </div>
