@@ -1,11 +1,13 @@
 <nav class="navbar is-info" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <%= link_to root_path, class: "m-auto" do %>
-      <figure class="image is-64x64">
+      <figure class="image is-48x48">
         <img src=<%= image_path 'house-icon.png' %> >
       </figure>
     <% end %>
-
+    <div class="subtitle has-text-white has-text-weight-bold m-auto">
+      Origami
+    </div>
     <a 
       role="button"
       class="navbar-burger has-text-white"
@@ -24,9 +26,6 @@
 
   <div id="navbarOrigami" class="navbar-menu">
     <div class="navbar-start">
-      <div class="subtitle has-text-white has-text-weight-bold m-auto">
-        Origami
-      </div>
       <div class="navbar-item">
         <%= link_to "Add category", new_category_path, class: "button is-white is-outlined is-hidden-touch" if controller_name == "categories" %>
         <%= link_to "Add category", new_category_path, class: "navbar-item has-text-info is-hidden-desktop" if controller_name == "categories" %>
