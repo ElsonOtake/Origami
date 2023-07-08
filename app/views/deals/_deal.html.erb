@@ -12,7 +12,7 @@
         <% if category == @category %>
           <%= image_tag(category.icon, width: "25") %>
         <% else %>
-          <%= link_to category_deals_path(category) do %>
+          <%= link_to category_deals_path(category), title: category.name do %>
             <%= image_tag(category.icon, width: "25") %>
           <% end %>
         <% end %>
