@@ -6,8 +6,11 @@
 
   <div class="field">
     <%= f.label :password, "New password", class: "label" %>
-    <div class="control">
+    <div class="control has-icons-left">
       <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: "input" %>
+      <span class="icon is-small is-left">
+        <i class="fas fa-lock"></i>
+      </span>
     </div>
     <% if @minimum_password_length %>
       <span class="help has-text-danger"><%= @minimum_password_length %> characters minimum</span>
@@ -16,8 +19,11 @@
 
   <div class="field">
     <%= f.label :password_confirmation, "Confirm new password", class: "label" %>
-    <div class="control">
+    <div class="control has-icons-left">
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input" %>
+      <span class="icon is-small is-left">
+        <i class="fas fa-lock"></i>
+      </span>
     </div>
   </div>
 

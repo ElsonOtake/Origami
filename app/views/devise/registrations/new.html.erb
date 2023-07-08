@@ -3,22 +3,31 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :name, class: "label" %>
-    <div class="control">
+    <div class="control has-icons-left">
       <%= f.text_field :name, class: "input", autofocus: true, autocomplete: "name" %>
+      <span class="icon is-small is-left">
+        <i class="fas fa-user"></i>
+      </span>
     </div>
   </div>
 
   <div class="field">
     <%= f.label :email, class: "label" %>
-    <div class="control">
+    <div class="control has-icons-left">
       <%= f.email_field :email, class: "input", autocomplete: "email" %>
+      <span class="icon is-small is-left">
+        <i class="fas fa-envelope"></i>
+      </span>
     </div>
   </div>
 
   <div class="field">
     <%= f.label :password, class: "label" %>
-    <div class="control">
+    <div class="control has-icons-left">
       <%= f.password_field :password, class: "input", autocomplete: "new-password" %>
+      <span class="icon is-small is-left">
+        <i class="fas fa-lock"></i>
+      </span>
     </div>
     <% if @minimum_password_length %>
       <span class="help has-text-danger"><%= @minimum_password_length %> characters minimum</span>
@@ -27,8 +36,11 @@
 
   <div class="field">
     <%= f.label :password_confirmation, class: "label" %>
-    <div class="control">
+    <div class="control has-icons-left">
       <%= f.password_field :password_confirmation, class: "input", autocomplete: "new-password" %>
+      <span class="icon is-small is-left">
+        <i class="fas fa-lock"></i>
+      </span>
     </div>
   </div>
 
