@@ -34,6 +34,10 @@
         <%= link_to "Add transaction", new_category_deal_path(@category), class: "button is-white is-outlined is-hidden-touch"  if controller_name == "deals" %>
         <%= link_to "Add transaction", new_category_deal_path(@category), class: "navbar-item has-text-info is-hidden-desktop"  if controller_name == "deals" %>
       </div>
+      <div class="navbar-item">
+        <%= link_to "Back to categories", categories_path, class: "button is-white is-outlined is-hidden-touch"  if controller_name == "deals" %>
+        <%= link_to "Back to categories", categories_path, class: "navbar-item has-text-info is-hidden-desktop"  if controller_name == "deals" %>
+      </div>
     </div>
     <div class="navbar-end">
       <div class="navbar-item">
