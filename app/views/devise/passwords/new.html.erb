@@ -1,14 +1,6 @@
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%# <nav class="navbar navbar-expand text-white px-3 mb-3 justify-content-between align-items-center">
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <div class="navbar-nav"> %>
-        <%#= link_to '&larr;'.html_safe, root_path, class: "text-decoration-none text-white fs-2" %>
-        <%#= f.submit "Send me" if can? :destroy, Customer, class:"nav-link bg-transparent border-0 text-decoration-none mx-2" %>
-      <%# </div>
-    </div>
-    <span class="navbar-brand mb-0 fs-4 text-white mx-3">FORGOT PASSWORD?</span>
-  </nav> %>
+<h2 class="title has-text-info">Forgot your password?</h2>
 
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
     <div class="field">
       <%= f.label :email, class: "label" %>
       <div class="control">
@@ -20,8 +12,4 @@
       <%= f.submit "Send me reset password instructions", class: "button is-link is-light" %>
       <%= link_to "Back", root_path, class: "button is-link is-light" %>
     </div>
-<% end %>
-
-<% if cannot? :destroy , Customer %>
-  <span class="has-text-danger">You aren't allowed to request password instructions.</span>
 <% end %>
