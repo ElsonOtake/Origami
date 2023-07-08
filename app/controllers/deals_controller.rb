@@ -5,13 +5,13 @@ class DealsController < ApplicationController
 
   # GET /deals or /deals.json
   def index
-    @deals = @category.deals.distinct.order(created_at: :desc)
+    @deals = @category.deals.order(created_at: :desc)
   end
 
   # GET /deals/new
   def new
     @deal = Deal.new
-    @other_categories = current_customer.categories.where.not(id: params[:category_id])
+    @other_categories = current_customer.categories.where.not(slug: params[:category_id])
   end
 
   # POST /deals or /deals.json
