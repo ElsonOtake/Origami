@@ -9,7 +9,9 @@
 
     <div>
       <% deal.categories.distinct.each do |category| %>
-        <%= image_tag(category.icon, width: "25") %>
+        <%= link_to category_deals_path(category) do %>
+          <%= image_tag(category.icon, width: "25") %>
+        <% end %>
       <% end %>
     </div>
 
