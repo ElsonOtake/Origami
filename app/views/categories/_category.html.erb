@@ -8,9 +8,9 @@
       </div>
       <div class="media-content">
         <div>
-          <%= link_to category.name, category_deals_path(category.id), class: "title is-4" %>
+          <%= link_to category.name, category_deals_path(category.id), class: "title is-4 has-text-link-dark" %>
         </div>
-        <div class="subtitle is-6"><%= number_to_currency(category.deals.sum('amount'), unit: '$', precision: 2) %></div>
+        <div class="subtitle is-6 has-text-warning-dark"><%= number_to_currency(category.deals.sum('amount'), unit: '$', precision: 2) %></div>
       </div>
     </div>
   </div>

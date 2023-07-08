@@ -2,8 +2,8 @@
   <div class="card-content">
     <div class="media">
       <div class="media-content">
-        <div class="title is-4"><%= deal.name %></div>
-        <div class="subtitle is-6"><%= deal.created_at.strftime('%d %b %Y') %></div>
+        <div class="title is-4 has-text-link-dark"><%= deal.name %></div>
+        <div class="subtitle is-6 has-text-danger-dark"><%= deal.created_at.strftime('%d %b %Y') %></div>
       </div>
     </div>
 
@@ -15,7 +15,7 @@
       <% end %>
     </div>
 
-    <div class="content">
+    <div class="content has-text-warning-dark">
       <%= number_to_currency(deal.amount, unit: '$', precision: 2) %>
     </div>
   </div>
