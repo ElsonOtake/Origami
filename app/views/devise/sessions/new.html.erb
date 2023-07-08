@@ -1,14 +1,6 @@
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <%# <nav class="navbar navbar-expand text-white px-3 mb-3 justify-content-between">
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <div class="navbar-nav"> %>
-        <%#= link_to '&larr;'.html_safe, root_path, class: "text-decoration-none text-white fs-2" %>
-        <%#= f.submit "Log In", class:"nav-link bg-transparent border-0 text-decoration-none mx-2" %>
-      <%# </div>
-    </div>
-    <span class="navbar-brand mb-0 fs-4 text-white mx-3">LOGIN</span>
-  </nav> %>
+<h2 class="title has-text-info">Login</h2>
 
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: false }) do |f| %>
   <div class="field">
     <%= f.label :email, class: "label" %>
     <div class="control">
