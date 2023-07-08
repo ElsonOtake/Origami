@@ -55,6 +55,9 @@ This application allows the customer to:
     <li><a href="https://github.com/flyerhzm/bullet">Bullet</a></li>
     <li><a href="https://github.com/rspec/rspec-rails">RSpec Rails</a></li>
     <li><a href="https://github.com/thoughtbot/factory_bot">Factory Bot</a></li>
+    <li><a href="https://bulma.io/">Bulma</a></li>
+    <li><a href="https://fontawesome.com/">Font Awesome</a></li>
+    <li><a href="https://github.com/norman/friendly_id">Friendly Id</a></li>
   </ul>
 </details>
 
@@ -62,6 +65,7 @@ This application allows the customer to:
 <summary>Database</summary>
   <ul>
     <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
+    <li><a href="https://www.elephantsql.com/">ElephantSQL</a></li>
   </ul>
 </details>
 
@@ -161,8 +165,8 @@ To run tests, run the following command:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **Split spending in multi-cost center cases**
 - [ ] **CRUD for Categories and Transactions**
+- [ ] **Transaction details**
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
