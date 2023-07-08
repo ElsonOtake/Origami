@@ -29,10 +29,12 @@
       <%= form.text_field :name, class: "input", autofocus: true, autocomplete: "name" %>
     </div>
   </div>
-  <div class="field">
+  
+  <%= form.label :icon, class: "label" %>
+  <div class="field box">
     <% icons.each do |icon| %>
-      <%= form.radio_button :icon, "#{icon}.png" %>
-      <%= form.label :icon, image_tag("#{icon}.png", alt: icon, width: "50"), class: "form-check-label" %>
+      <%= form.label :icon, image_tag("#{icon}.png", alt: icon, width: "50") %>
+      <%= form.radio_button :icon, "#{icon}.png", class: "mr-3" %>
     <% end %>
   </div>
 
