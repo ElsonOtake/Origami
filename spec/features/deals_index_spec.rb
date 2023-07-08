@@ -61,7 +61,7 @@ RSpec.describe 'Deals page', type: :feature do
     end
 
     it 'will go to add a new transaction page when click on link' do
-      expect(current_path).to eq(new_category_deal_path(@fast_food))
+      expect(page).to have_current_path("/categories/#{@fast_food.name.parameterize}/deals/new")
     end
 
     it 'will have new transaction page content' do
