@@ -19,7 +19,6 @@ class DealsController < ApplicationController
     @deal = Deal.new(deal_params)
     @deal.author = current_customer
     categories = Category.where(id: params[:deal][:category_ids])
-    @deal.categories.push(categories)
     @deal.amount /= categories.size if categories.size > 1
     if @deal.save
       redirect_to category_deals_url(@category), notice: 'Transaction was successfully created.'
