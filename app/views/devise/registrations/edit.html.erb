@@ -1,25 +1,23 @@
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%# <nav class="navbar navbar-expand text-white px-3 mb-3 justify-content-between">
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <div class="navbar-nav"> %>
-        <%#= link_to '&larr;'.html_safe, categories_path, class: "text-decoration-none text-white fs-2" %>
-        <%#= f.submit "Update", class:"nav-link bg-transparent border-0 text-decoration-none text-white mx-2" %>
-      <%# </div>
-    </div>
-    <span class="navbar-brand mb-0 fs-4 text-white mx-3">EDIT PROFILE</span>
-  </nav> %>
+<h2 class="title has-text-info">Edit profile</h2>
 
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <div class="field">
     <%= f.label :name, class: "label" %>
-    <div class="control">
+    <div class="control has-icons-left">
       <%= f.text_field :name, class: "input", autofocus: true, autocomplete: "name" %>
+      <span class="icon is-small is-left">
+        <i class="fas fa-user"></i>
+      </span>
     </div>
   </div>
 
   <div class="field">
     <%= f.label :email, class: "label" %>
-    <div class="control">
+    <div class="control has-icons-left">
       <%= f.email_field :email, class: "input", autocomplete: "email" %>
+      <span class="icon is-small is-left">
+        <i class="fas fa-envelope"></i>
+      </span>
     </div>
   </div>
 
@@ -29,8 +27,11 @@
 
   <div class="field">
     <%= f.label :password, class: "label" %>
-    <div class="control">
+    <div class="control has-icons-left">
       <%= f.password_field :password, class: "input", autocomplete: "new-password" %>
+      <span class="icon is-small is-left">
+        <i class="fas fa-lock"></i>
+      </span>
     </div>
     <% if @minimum_password_length %>
       <span class="help has-text-danger"><%= @minimum_password_length %> characters minimum</span>
@@ -39,15 +40,21 @@
 
   <div class="field">
     <%= f.label :password_confirmation, class: "label" %>
-    <div class="control">
+    <div class="control has-icons-left">
       <%= f.password_field :password_confirmation, class: "input", autocomplete: "new-password" %>
+      <span class="icon is-small is-left">
+        <i class="fas fa-lock"></i>
+      </span>
     </div>
   </div>
 
   <div class="field">
     <%= f.label :current_password, class: "label" %>
-    <div class="control">
+    <div class="control has-icons-left">
       <%= f.password_field :current_password, class: "input", autocomplete: "current-password" %>
+      <span class="icon is-small is-left">
+        <i class="fas fa-lock"></i>
+      </span>
     </div>
     <span class="help has-text-info">We need your current password to confirm your changes</span>
   </div>
@@ -56,7 +63,28 @@
     <%= f.submit "Edit profile", class: "button is-link is-light" %>
     <%= link_to "Back", root_path, class: "button is-link is-light" %>
   </div>
+<% end %>
+<br>
+<p class="subtitle has-text-info">Unhappy?</p>
+<% if cannot? :destroy , Customer %>
+  <%= button_to registration_path(resource_name),
+    class: "button is-danger is-light",
+    disabled: true do
+  %>
+    <span>Cancel my account</span>
+    <span class="icon is-small">
+      <i class="fas fa-times"></i>
+    </span>
   <% end %>
-  <br>
-  <p class="subtitle has-text-info">Unhappy?</p>
-  <%= button_to "Cancel my account", registration_path(resource_name), data: { turbo_confirm: "Are you sure?" , turbo_method: :delete }, class: "button is-danger is-light" %>
+  <span class="help has-text-danger">You aren't allowed to cancel your account.</span>
+<% else %>
+  <%= button_to registration_path(resource_name),
+    data: { turbo_confirm: "Are you sure?" , turbo_method: :delete },
+    class: "button is-danger is-light" do
+  %>
+    <span>Cancel my account</span>
+    <span class="icon is-small">
+      <i class="fas fa-times"></i>
+    </span>
+  <% end %>
+<% end %>

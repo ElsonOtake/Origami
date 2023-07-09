@@ -116,6 +116,8 @@ GEM
     factory_bot_rails (6.2.0)
       factory_bot (~> 6.2.0)
       railties (>= 5.0.0)
+    friendly_id (5.4.2)
+      activerecord (>= 4.0.0)
     globalid (1.1.0)
       activesupport (>= 5.0)
     i18n (1.13.0)
@@ -292,6 +294,7 @@ DEPENDENCIES
   devise
   dotenv-rails
   factory_bot_rails
+  friendly_id (~> 5.4.0)
   importmap-rails
   jbuilder
   pg (~> 1.1)

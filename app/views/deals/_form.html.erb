@@ -25,12 +25,12 @@
     </div>
   </div>
 
-  <div class="field">
-    <%= form.check_box :category_ids, {multiple: true, checked: true}, category.id, nil %>
+  <div class="field is-flex">
     <%= form.label :category_ids, image_tag(category.icon, alt: category.name, width: "50"), class: "label" %>
+    <%= form.check_box :category_ids, {multiple: true, checked: true}, category.id, nil %>
     <% other_categories.each do |category| %>
+      <%= form.label :category_ids, image_tag(category.icon, alt: category.name, width: "50"), class: "label ml-4" %>
       <%= form.check_box :category_ids, {multiple: true}, category.id, nil %>
-      <%= form.label :category_ids, image_tag(category.icon, alt: category.name, width: "50"), class: "label" %>
     <% end %>
   </div>
 

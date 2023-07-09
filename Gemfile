@@ -48,6 +48,8 @@ gem 'devise'
 
 gem 'cancancan'
 
+gem 'friendly_id', '~> 5.4.0'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 

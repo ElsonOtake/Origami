@@ -55,6 +55,9 @@ This application allows the customer to:
     <li><a href="https://github.com/flyerhzm/bullet">Bullet</a></li>
     <li><a href="https://github.com/rspec/rspec-rails">RSpec Rails</a></li>
     <li><a href="https://github.com/thoughtbot/factory_bot">Factory Bot</a></li>
+    <li><a href="https://bulma.io/">Bulma</a></li>
+    <li><a href="https://fontawesome.com/">Font Awesome</a></li>
+    <li><a href="https://github.com/norman/friendly_id">Friendly Id</a></li>
   </ul>
 </details>
 
@@ -120,6 +123,12 @@ using GitHub CLI:
 
 ### Install
 
+Set up Postgres credentials in .env file
+```sh
+POSTGRES_USERNAME=postgres_username
+POSTGRES_PASSWORD=postgres_password
+```
+
 Install this project with:
 ```sh
   bundle install
@@ -161,8 +170,8 @@ To run tests, run the following command:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **Split spending in multi-cost center cases**
 - [ ] **CRUD for Categories and Transactions**
+- [ ] **Transaction details page**
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -197,6 +206,7 @@ I would like to thank:
 - [W3Schools](https://www.w3schools.com/)
 - [Stack Overflow](https://stackoverflow.com/)
 - [Render](https://dashboard.render.com/)
+- [ElephantSQL](https://www.elephantsql.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

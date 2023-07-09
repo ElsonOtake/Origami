@@ -1,19 +1,25 @@
-<div class="card column is-one-fifth m-2">
+<div class="card column is-two-fifths-tablet is-one-fourth-widescreen is-one-fifth-fullhd m-2">
   <div class="card-content">
     <div class="media">
       <div class="media-content">
-        <div class="title is-4"><%= deal.name %></div>
-        <div class="subtitle is-6"><%= deal.created_at.strftime('%d %b %Y') %></div>
+        <div class="title is-4 has-text-link-dark"><%= deal.name %></div>
+        <div class="subtitle is-6 has-text-danger-dark"><%= deal.created_at.strftime('%d %b %Y') %></div>
       </div>
     </div>
 
     <div>
       <% deal.categories.distinct.each do |category| %>
-        <%= image_tag(category.icon, width: "25") %>
+        <% if category == @category %>
+          <%= image_tag(category.icon, width: "25") %>
+        <% else %>
+          <%= link_to category_deals_path(category), title: category.name do %>
+            <%= image_tag(category.icon, width: "25") %>
+          <% end %>
+        <% end %>
       <% end %>
     </div>
 
-    <div class="content">
+    <div class="content has-text-warning-dark">
       <%= number_to_currency(deal.amount, unit: '$', precision: 2) %>
     </div>
   </div>
