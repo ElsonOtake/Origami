@@ -65,6 +65,10 @@ RSpec.describe 'Deals page', type: :feature do
     end
 
     it 'will have new transaction page content' do
+      expect(page).to have_content('Create transaction')
+    end
+
+    it 'will have new transaction page content' do
       expect(page).to have_content('Name')
       expect(page).to have_content('Amount')
     end
