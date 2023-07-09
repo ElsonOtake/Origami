@@ -23,28 +23,35 @@
     </a>
   </div>
 
-
   <div id="navbarOrigami" class="navbar-menu">
     <div class="navbar-start">
-      <div class="navbar-item">
-        <%= link_to "Add category", new_category_path, class: "button is-white is-outlined is-hidden-touch" if controller_name == "categories" %>
-        <%= link_to "Add category", new_category_path, class: "navbar-item has-text-info is-hidden-desktop" if controller_name == "categories" %>
+      <%= link_to "Add category", new_category_path, class: "navbar-item has-text-info is-hidden-desktop" if controller_name == "categories" %>
+      <%= link_to "Add transaction", new_category_deal_path(@category), class: "navbar-item has-text-info is-hidden-desktop"  if controller_name == "deals" %>
+      <%= link_to "Back to categories", categories_path, class: "navbar-item has-text-info is-hidden-desktop"  if controller_name == "deals" %>
+      <% if customer_signed_in? %>
+        <%= link_to 'Edit profile', edit_customer_registration_path, class: "navbar-item has-text-info is-hidden-desktop" %>
+        <%= link_to 'Sign out', destroy_customer_session_path, data: { turbo_method: :delete }, class: "navbar-item has-text-info is-hidden-desktop" %>
+      <% else %>
+        <%= link_to 'Sign up', new_customer_registration_path, class: "navbar-item has-text-info is-hidden-desktop" %>
+        <%= link_to 'Sign in', new_customer_session_path, class: "navbar-item has-text-info is-hidden-desktop" %>
+      <% end %>
+
+      <div class="navbar-item is-hidden-touch">
+        <%= link_to "Add category", new_category_path, class: "button is-white is-outlined" if controller_name == "categories" %>
       </div>
-      <div class="navbar-item">
-        <%= link_to "Add transaction", new_category_deal_path(@category), class: "button is-white is-outlined is-hidden-touch"  if controller_name == "deals" %>
-        <%= link_to "Add transaction", new_category_deal_path(@category), class: "navbar-item has-text-info is-hidden-desktop"  if controller_name == "deals" %>
+      <div class="navbar-item is-hidden-touch">
+        <%= link_to "Add transaction", new_category_deal_path(@category), class: "button is-white is-outlined"  if controller_name == "deals" %>
       </div>
-      <div class="navbar-item">
-        <%= link_to "Back to categories", categories_path, class: "button is-white is-outlined is-hidden-touch"  if controller_name == "deals" %>
-        <%= link_to "Back to categories", categories_path, class: "navbar-item has-text-info is-hidden-desktop"  if controller_name == "deals" %>
+      <div class="navbar-item is-hidden-touch">
+        <%= link_to "Back to categories", categories_path, class: "button is-white is-outlined"  if controller_name == "deals" %>
       </div>
     </div>
-    <div class="navbar-end">
+    <div class="navbar-end is-hidden-touch">
       <% if customer_signed_in? %>
         <div class="navbar-item has-text-white"><%= current_customer.email %></div>
       <% end %>
       <div class="navbar-item">
-        <div class="buttons is-hidden-touch">
+        <div class="buttons">
           <% if customer_signed_in? %>
             <%= link_to 'Edit profile', edit_customer_registration_path, class: "button navbar-item is-white is-outlined" %>
             <%= link_to 'Sign out', destroy_customer_session_path, data: { turbo_method: :delete }, class: "button navbar-item is-white is-outlined" %>
@@ -54,13 +61,6 @@
           <% end %>
         </div>
       </div>
-      <% if customer_signed_in? %>
-        <%= link_to 'Edit profile', edit_customer_registration_path, class: "navbar-item has-text-info is-hidden-desktop" %>
-        <%= link_to 'Sign out', destroy_customer_session_path, data: { turbo_method: :delete }, class: "navbar-item has-text-info is-hidden-desktop" %>
-      <% else %>
-        <%= link_to 'Sign up', new_customer_registration_path, class: "navbar-item has-text-info is-hidden-desktop" %>
-        <%= link_to 'Sign in', new_customer_session_path, class: "navbar-item has-text-info is-hidden-desktop" %>
-      <% end %>
     </div>
   </div>
 </nav>
