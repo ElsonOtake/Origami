@@ -65,7 +65,6 @@ This application allows the customer to:
 <summary>Database</summary>
   <ul>
     <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
-    <li><a href="https://www.elephantsql.com/">ElephantSQL</a></li>
   </ul>
 </details>
 
@@ -207,6 +206,7 @@ I would like to thank:
 - [W3Schools](https://www.w3schools.com/)
 - [Stack Overflow](https://stackoverflow.com/)
 - [Render](https://dashboard.render.com/)
+- [ElephantSQL](https://www.elephantsql.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
