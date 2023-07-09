@@ -124,6 +124,12 @@ using GitHub CLI:
 
 ### Install
 
+Set up Postgres credentials in .env file
+```sh
+POSTGRES_USERNAME=postgres_username
+POSTGRES_PASSWORD=postgres_password
+```
+
 Install this project with:
 ```sh
   bundle install
@@ -166,7 +172,7 @@ To run tests, run the following command:
 ## 🔭 Future Features <a name="future-features"></a>
 
 - [ ] **CRUD for Categories and Transactions**
-- [ ] **Transaction details**
+- [ ] **Transaction details page**
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
