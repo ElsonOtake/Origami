@@ -11,7 +11,7 @@ class DealsController < ApplicationController
   # GET /deals/new
   def new
     @deal = Deal.new
-    @other_categories = current_customer.categories.where.not(slug: params[:category_id])
+    @other_categories = current_customer.categories.where.not(id: @category)
   end
 
   # POST /deals or /deals.json
