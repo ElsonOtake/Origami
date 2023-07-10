@@ -25,12 +25,14 @@
     </div>
   </div>
 
+  <%= form.label :category, class: "label" if other_categories.empty? %>
+  <%= form.label "Categories to split expenses", class: "label" unless other_categories.empty? %>
   <div class="field is-flex">
     <%= form.label :category_ids, image_tag(category.icon, alt: category.name, width: "50"), class: "label" %>
-    <%= form.check_box :category_ids, {multiple: true, checked: true}, category.id, nil %>
-    <% other_categories.each do |category| %>
-      <%= form.label :category_ids, image_tag(category.icon, alt: category.name, width: "50"), class: "label ml-4" %>
-      <%= form.check_box :category_ids, {multiple: true}, category.id, nil %>
+    <%= form.check_box :category_ids, {multiple: true, checked: true, hidden: true}, category.id, nil %>
+    <% other_categories.each do |other_category| %>
+      <%= form.label :category_ids, image_tag(other_category.icon, alt: other_category.name, width: "50"), class: "label ml-4" %>
+      <%= form.check_box :category_ids, {multiple: true}, other_category.id, nil %>
     <% end %>
   </div>
 
