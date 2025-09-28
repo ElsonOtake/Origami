@@ -1,0 +1,43 @@
+<%= form_with(model: deal, url: category_deals_path(category)) do |form| %>
+  <% if deal.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(deal.errors.count, "error") %> prohibited this deal from being saved:</h2>
+
+      <ul>
+        <% deal.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name, class: "label" %>
+    <div class="control">
+      <%= form.text_field :name, class: "input", autofocus: true, autocomplete: "name" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :amount, class: "label" %>
+    <div class="control">
+      <%= form.text_field :amount, class: "input", autocomplete: "amount" %>
+    </div>
+  </div>
+
+  <%= form.label :category, class: "label" if other_categories.empty? %>
+  <%= form.label "Categories to split expenses", class: "label" unless other_categories.empty? %>
+  <div class="field is-flex">
+    <%= form.label :category_ids, image_tag(category.icon, alt: category.name, width: "50"), class: "label" %>
+    <%= form.check_box :category_ids, {multiple: true, checked: true, hidden: true}, category.id, nil %>
+    <% other_categories.each do |other_category| %>
+      <%= form.label :category_ids, image_tag(other_category.icon, alt: other_category.name, width: "50"), class: "label ml-4" %>
+      <%= form.check_box :category_ids, {multiple: true}, other_category.id, nil %>
+    <% end %>
+  </div>
+
+  <div class="control actions buttons">
+    <%= form.submit "Save", class: "button is-link is-light" %>
+    <%= link_to "Back", category_deals_path(category), class: "button is-link is-light" %>
+  </div>
+<% end %>

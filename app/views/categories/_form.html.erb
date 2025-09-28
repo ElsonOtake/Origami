@@ -1,0 +1,45 @@
+<% icons = ['american-football', 'astrology', 'baseball', 'basketball', 'billiard', 'bitcoin', 'blueprint',
+            'book', 'bowling', 'cabinet', 'camping-tent', 'camping', 'chess', 'circus-tent', 'claim',
+            'cleaning', 'cloth', 'coffee', 'coronavirus', 'credit-card- machine', 'cycling', 'dartboard',
+            'debit-card', 'degree', 'doctor', 'drink', 'ecology', 'elearning', 'electricity', 'entertainment',
+            'espresso', 'family', 'farm', 'fast-food', 'fishing', 'food', 'forklift', 'fruit', 'gadget',
+            'gas', 'gift', 'groceries', 'gym', 'ice-cream', 'inbox', 'insurance', 'just-married', 'laundry',
+            'loaf', 'magazine', 'massage', 'medical', 'movie', 'music', 'notre-dame', 'painting', 'panorama',
+            'parking', 'pets', 'ping-pong', 'pizza', 'poker', 'public-transport', 'puzzle', 'recycle-sign',
+            'ring', 'roller-coaster', 'salad', 'salon', 'santa-claus', 'school', 'shopping-cart', 'snack',
+            'soap', 'swimming', 'toolbox', 'tooth', 'tow-truck', 'towels', 'toy', 'trail', 'train', 'travel',
+            'trekking', 'wedding', 'workspace', 'yoga'] %>  
+
+<%= form_with(model: category) do |form| %>
+  <% if category.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
+
+      <ul>
+        <% category.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name, class: "label" %>
+    <div class="control">
+      <%= form.text_field :name, class: "input", autofocus: true, autocomplete: "name" %>
+    </div>
+  </div>
+  
+  <%= form.label :icon, class: "label" %>
+  <div class="field box">
+    <% icons.each do |icon| %>
+      <%= form.label :icon, image_tag("#{icon}.png", alt: icon, width: "50") %>
+      <%= form.radio_button :icon, "#{icon}.png", class: "mr-3" %>
+    <% end %>
+  </div>
+
+  <div class="control actions buttons">
+    <%= form.submit "Save", class: "button is-link is-light" %>
+    <%= link_to "Back", categories_path, class: "button is-link is-light" %>
+  </div>
+<% end %>

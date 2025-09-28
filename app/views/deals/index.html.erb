@@ -1,0 +1,7 @@
+<h2 class="title has-text-info">Transactions - <%= @category.name %></h2>
+<h4 class="subtitle"><span class="has-text-primary-dark">Total: </span><span class="has-text-warning-dark"><%= number_to_currency(@category.deals.sum('amount'), unit: '$', precision: 2) %></span></h4>
+<div class="columns is-multiline is-flex is-justify-content-space-evenly">
+  <% @deals.each do |deal| %>
+    <%= render deal %>
+  <% end %>
+</div>

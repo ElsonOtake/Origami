@@ -1,0 +1,7 @@
+<h2 class="title has-text-info">Categories</h2>
+
+<div class="columns is-multiline mt-2 is-flex is-justify-content-space-evenly">
+  <% @categories.each do |category| %>
+    <%= render category %>
+  <% end %>
+</div>
