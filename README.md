@@ -8,7 +8,6 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
-  - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Setup](#setup)
@@ -74,16 +73,6 @@ This application allows the customer to:
 
 - **Authentication**
 - **Tests**
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- LIVE DEMO -->
-
-## 🚀 Live Demo <a name="live-demo"></a>
-
-- [Live Demo Link](https://elsonotake-origami.onrender.com/)
-
-- [Project features video](https://www.loom.com/share/f51b9d58d267427ca1b8d209778c1206)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
