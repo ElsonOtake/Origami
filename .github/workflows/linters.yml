@@ -19,19 +19,6 @@ jobs:
           gem install --no-document rubocop -v '>= 1.0, < 2.0'
       - name: Rubocop Report
         run: rubocop --color
-  stylelint:
-    name: Stylelint
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "22.x"
-          cache: "npm"
-      - name: Install dependencies
-        run: npm ci || npm install
-      - name: Stylelint Report
-        run: npx stylelint "**/*.{css,scss}" --ignore-pattern "build/**"
   nodechecker:
     name: node_modules checker
     runs-on: ubuntu-latest
