@@ -5,5 +5,6 @@ class Category < ApplicationRecord
   validates :icon, presence: true
 
   extend FriendlyId
+
   friendly_id :name, use: %i[slugged finders]
 end
