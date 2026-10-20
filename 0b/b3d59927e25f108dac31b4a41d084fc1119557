@@ -1,0 +1,15 @@
+README.md
+  h_da978aeed56e72 16,71-77,84,98-99,101-103,150-158,161-166,176-179,191
+  h_da978aeed56e72 100,159-160,167,180-181
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "0bb3d59927e25f108dac31b4a41d084fc1119557",
+  "prompts": {},
+  "humans": {
+    "h_da978aeed56e72": {
+      "author": "Elson Otake <elsonotake@yahoo.com.br>"
+    }
+  }
+}
