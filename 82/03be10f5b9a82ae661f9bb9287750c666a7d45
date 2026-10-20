@@ -1,0 +1,16 @@
+Dockerfile
+  h_da978aeed56e72 1-27
+docker-compose.yml
+  h_da978aeed56e72 1-25
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "8203be10f5b9a82ae661f9bb9287750c666a7d45",
+  "prompts": {},
+  "humans": {
+    "h_da978aeed56e72": {
+      "author": "Elson Otake <elsonotake@yahoo.com.br>"
+    }
+  }
+}
