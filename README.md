@@ -13,6 +13,7 @@
   - [Setup](#setup)
   - [Install](#install)
   - [Usage](#usage)
+  - [Run with Docker](#run-with-docker)
   - [Run tests](#run-tests)
 - [👥 Authors](#authors)
 - [🔭 Future Features](#future-features)
@@ -67,12 +68,20 @@ This application allows the customer to:
   </ul>
 </details>
 
+<details>
+<summary>DevOps & Deployment</summary>
+  <ul>
+    <li><a href="https://www.docker.com/">Docker</a></li>
+  </ul>
+</details>
+
 <!-- Features -->
 
 ### Key Features <a name="key-features"></a>
 
 - **Authentication**
 - **Tests**
+- **Docker Support**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -86,7 +95,12 @@ To get a local copy up and running, follow these steps.
 
 In order to run this project you need:
 
-[Ruby](https://www.ruby-lang.org/en/)
+- [Ruby](https://www.ruby-lang.org/en/) (v3.4.5)
+- [PostgreSQL](https://www.postgresql.org/)
+
+Or optionally, if running with containerization:
+
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 
 ### Setup
 
@@ -133,12 +147,36 @@ To run the project, execute the following command:
 ```
 Open `http://localhost:3000/` on your browser.
 
+### Run with Docker
+
+To build and run the application along with PostgreSQL in Docker containers:
+
+- Make sure Docker Engine / Docker Desktop is running.
+- Launch the services:
+
+```sh
+docker compose up --build
+```
+Open `http://localhost:3000/` on your browser.
+
+To stop the containers:
+
+```sh
+docker compose down
+```
+
 ### Run tests
 
 To run tests, run the following command:
 
 ```sh
   rspec
+```
+
+Or inside the Docker container:
+
+```sh
+docker compose exec web bundle exec rspec
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -150,7 +188,7 @@ To run tests, run the following command:
 👤 **Elson Otake**
 
 - GitHub: [elsonotake](https://github.com/elsonotake)
-- Twitter: [@elsonotake](https://twitter.com/elsonotake)
+- X: [@elsonotake](https://x.com/elsonotake)
 - LinkedIn: [elsonotake](https://linkedin.com/in/elsonotake)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -195,7 +233,6 @@ I would like to thank:
 - [W3Schools](https://www.w3schools.com/)
 - [Stack Overflow](https://stackoverflow.com/)
 - [Render](https://dashboard.render.com/)
-- [ElephantSQL](https://www.elephantsql.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
